@@ -1,0 +1,23 @@
+<?php 
+$_helper = Mage::helper('catalog/category');
+$_categories = $_helper->getStoreCategories();
+?>
+<ul>
+<?php
+foreach($_categories as $_category){?>
+     <li>
+   
+            <a href="<?php echo $_helper->getCategoryUrl($_category);?>"><?php echo $_category->getName() ?></a>      
+            
+     </li>
+     
+ 
+            
+  <?php          
+        
+       
+}
+
+
+    ?>
+</ul>

@@ -1,0 +1,267 @@
+<script type="text/javascript" src="http://localhost/magento/santushti_new/skin/frontend/base/default/js/jmodernizr.custom.17475.js"></script>
+<div class="widget widget-new-products">
+    <div class="widget-title">
+        <h2 class="heading"><span class="leftbder"></span><span class="title">New Products</span><span class="rightbder"></span></h2>
+    </div>
+    <div class="widget-products">
+                                <!--<ul class="products-grid products-grid--max-5-col-widget">--->
+		<ul class="elastislide-list" id="carousel">
+                        <!--<li class="item last">-->
+                <li>   
+					                                    <!--<a href="http://localhost/magento/santushti_new/index.php/test-product.html?___SID=U" title="Test Product" class="product-image">
+                        <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/i/t/iti-blue-embroidered-kurta-2055-789958-1-product2.jpg" alt="Test Product" />
+                    </a>-->
+					
+					<a href="http://localhost/magento/santushti_new/index.php/test-product.html?___SID=U">
+                               <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/200x/9df78eab33525d08d6e5fb8d27136e95/i/t/iti-blue-embroidered-kurta-2055-789958-1-product2.jpg">
+                    </a>
+					                    
+                                        <div class="product-info">
+                        <h3 class="product-name"><a href="http://localhost/magento/santushti_new/index.php/test-product.html?___SID=U" title="Test Product)">Test Product</a></h3>
+                        
+
+                        
+    <div class="price-box">
+                                            
+                    <p class="old-price">
+                <span class="price-label">Regular Price:</span>
+                <span class="price" id="old-price-44-widget-new-grid">
+                    $500.00                </span>
+            </p>
+
+                            <p class="special-price">
+                    <span class="price-label">Special Price</span>
+                <span class="price" id="product-price-44-widget-new-grid">
+                    $450.00                </span>
+                </p>
+                    
+    
+        </div>
+
+                                            <!--<div class="actions">
+                                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://localhost/magento/santushti_new/index.php/test-product.html?___SID=U')"><span><span>Add to Cart</span></span></button>
+                                                        <ul class="add-to-links">
+                                                                    <li><a href="http://localhost/magento/santushti_new/index.php/wishlist/index/add/product/44/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-wishlist">Add to Wishlist</a></li>
+                                                                                                    <li><span class="separator">|</span> <a href="http://localhost/magento/santushti_new/index.php/catalog/product_compare/add/product/44/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-compare">Add to Compare</a></li>
+                                                            </ul>
+                        </div>-->
+                    </div>
+                </li>
+                        <!--<li class="item last">-->
+                <li>   
+					                                    <!--<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-purple.html?___SID=U" title="New T-shirts-Purple" class="product-image">
+                        <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-purple-plain-women-t-shirt-aaa00008641-45_2.jpg" alt="New T-shirts-Purple" />
+                    </a>-->
+					
+					<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-purple.html?___SID=U">
+                               <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/200x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-purple-plain-women-t-shirt-aaa00008641-45_2.jpg">
+                    </a>
+					                    
+                                        <div class="product-info">
+                        <h3 class="product-name"><a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-purple.html?___SID=U" title="New T-shirts-Purple)">New T-shirts-Purple</a></h3>
+                        
+
+                        
+    <div class="price-box">
+                                                                <span class="regular-price" id="product-price-39-widget-new-grid">
+                                            <span class="price">$700.00</span>                                    </span>
+                        
+        </div>
+
+                                            <!--<div class="actions">
+                                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://localhost/magento/santushti_new/index.php/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/product/39/form_key/kRiOtob5waeq8s3P/?___SID=U')"><span><span>Add to Cart</span></span></button>
+                                                        <ul class="add-to-links">
+                                                                    <li><a href="http://localhost/magento/santushti_new/index.php/wishlist/index/add/product/39/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-wishlist">Add to Wishlist</a></li>
+                                                                                                    <li><span class="separator">|</span> <a href="http://localhost/magento/santushti_new/index.php/catalog/product_compare/add/product/39/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-compare">Add to Compare</a></li>
+                                                            </ul>
+                        </div>-->
+                    </div>
+                </li>
+                        <!--<li class="item last">-->
+                <li>   
+					                                    <!--<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts.html?___SID=U" title="New T-shirts" class="product-image">
+                        <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-blue-graphic-women-t-shirt-aaa00006704-708.jpg" alt="New T-shirts" />
+                    </a>-->
+					
+					<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts.html?___SID=U">
+                               <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/200x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-blue-graphic-women-t-shirt-aaa00006704-708.jpg">
+                    </a>
+					                    
+                                        <div class="product-info">
+                        <h3 class="product-name"><a href="http://localhost/magento/santushti_new/index.php/new-t-shirts.html?___SID=U" title="New T-shirts)">New T-shirts</a></h3>
+                        
+
+                        
+    <div class="price-box">
+                                                                <span class="regular-price" id="product-price-33-widget-new-grid">
+                                            <span class="price">$700.00</span>                                    </span>
+                        
+        </div>
+
+                                            <!--<div class="actions">
+                                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://localhost/magento/santushti_new/index.php/new-t-shirts.html?___SID=U')"><span><span>Add to Cart</span></span></button>
+                                                        <ul class="add-to-links">
+                                                                    <li><a href="http://localhost/magento/santushti_new/index.php/wishlist/index/add/product/33/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-wishlist">Add to Wishlist</a></li>
+                                                                                                    <li><span class="separator">|</span> <a href="http://localhost/magento/santushti_new/index.php/catalog/product_compare/add/product/33/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-compare">Add to Compare</a></li>
+                                                            </ul>
+                        </div>-->
+                    </div>
+                </li>
+                        <!--<li class="item last">-->
+                <li>   
+					                                    <!--<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-grey.html?___SID=U" title="New T-shirts-Grey" class="product-image">
+                        <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-steel-grey-plain-women-t-shirt-aaa00008676-80_1.jpg" alt="New T-shirts-Grey" />
+                    </a>-->
+					
+					<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-grey.html?___SID=U">
+                               <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/200x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-steel-grey-plain-women-t-shirt-aaa00008676-80_1.jpg">
+                    </a>
+					                    
+                                        <div class="product-info">
+                        <h3 class="product-name"><a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-grey.html?___SID=U" title="New T-shirts-Grey)">New T-shirts-Grey</a></h3>
+                        
+
+                        
+    <div class="price-box">
+                                                                <span class="regular-price" id="product-price-37-widget-new-grid">
+                                            <span class="price">$700.00</span>                                    </span>
+                        
+        </div>
+
+                                            <!--<div class="actions">
+                                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://localhost/magento/santushti_new/index.php/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/product/37/form_key/kRiOtob5waeq8s3P/?___SID=U')"><span><span>Add to Cart</span></span></button>
+                                                        <ul class="add-to-links">
+                                                                    <li><a href="http://localhost/magento/santushti_new/index.php/wishlist/index/add/product/37/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-wishlist">Add to Wishlist</a></li>
+                                                                                                    <li><span class="separator">|</span> <a href="http://localhost/magento/santushti_new/index.php/catalog/product_compare/add/product/37/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-compare">Add to Compare</a></li>
+                                                            </ul>
+                        </div>-->
+                    </div>
+                </li>
+                        <!--<li class="item last">-->
+                <li>   
+					                                    <!--<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-yellow.html?___SID=U" title="New T-shirts-Yellow" class="product-image">
+                        <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-bright-yellow-plain-women-t-shirt-aaa00008681-85_1.jpg" alt="New T-shirts-Yellow" />
+                    </a>-->
+					
+					<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-yellow.html?___SID=U">
+                               <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/200x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-bright-yellow-plain-women-t-shirt-aaa00008681-85_1.jpg">
+                    </a>
+					                    
+                                        <div class="product-info">
+                        <h3 class="product-name"><a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-yellow.html?___SID=U" title="New T-shirts-Yellow)">New T-shirts-Yellow</a></h3>
+                        
+
+                        
+    <div class="price-box">
+                                                                <span class="regular-price" id="product-price-42-widget-new-grid">
+                                            <span class="price">$700.00</span>                                    </span>
+                        
+        </div>
+
+                                            <!--<div class="actions">
+                                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://localhost/magento/santushti_new/index.php/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/product/42/form_key/kRiOtob5waeq8s3P/?___SID=U')"><span><span>Add to Cart</span></span></button>
+                                                        <ul class="add-to-links">
+                                                                    <li><a href="http://localhost/magento/santushti_new/index.php/wishlist/index/add/product/42/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-wishlist">Add to Wishlist</a></li>
+                                                                                                    <li><span class="separator">|</span> <a href="http://localhost/magento/santushti_new/index.php/catalog/product_compare/add/product/42/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-compare">Add to Compare</a></li>
+                                                            </ul>
+                        </div>-->
+                    </div>
+                </li>
+                        <!--<li class="item last">-->
+                <li>   
+					                                    <!--<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-white.html?___SID=U" title="New T-shirts-White" class="product-image">
+                        <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-ice-pink-plain-women-t-shirt-aaa00008766-70_1.jpg" alt="New T-shirts-White" />
+                    </a>-->
+					
+					<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-white.html?___SID=U">
+                               <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/200x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-ice-pink-plain-women-t-shirt-aaa00008766-70_1.jpg">
+                    </a>
+					                    
+                                        <div class="product-info">
+                        <h3 class="product-name"><a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-white.html?___SID=U" title="New T-shirts-White)">New T-shirts-White</a></h3>
+                        
+
+                        
+    <div class="price-box">
+                                                                <span class="regular-price" id="product-price-41-widget-new-grid">
+                                            <span class="price">$700.00</span>                                    </span>
+                        
+        </div>
+
+                                            <!--<div class="actions">
+                                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://localhost/magento/santushti_new/index.php/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/product/41/form_key/kRiOtob5waeq8s3P/?___SID=U')"><span><span>Add to Cart</span></span></button>
+                                                        <ul class="add-to-links">
+                                                                    <li><a href="http://localhost/magento/santushti_new/index.php/wishlist/index/add/product/41/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-wishlist">Add to Wishlist</a></li>
+                                                                                                    <li><span class="separator">|</span> <a href="http://localhost/magento/santushti_new/index.php/catalog/product_compare/add/product/41/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-compare">Add to Compare</a></li>
+                                                            </ul>
+                        </div>-->
+                    </div>
+                </li>
+                        <!--<li class="item last">-->
+                <li>   
+					                                    <!--<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-red.html?___SID=U" title="New T-shirts-Red" class="product-image">
+                        <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-dark-pink-plain-women-t-shirt-aaa00008691-95_1.jpg" alt="New T-shirts-Red" />
+                    </a>-->
+					
+					<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-red.html?___SID=U">
+                               <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/200x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-dark-pink-plain-women-t-shirt-aaa00008691-95_1.jpg">
+                    </a>
+					                    
+                                        <div class="product-info">
+                        <h3 class="product-name"><a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-red.html?___SID=U" title="New T-shirts-Red)">New T-shirts-Red</a></h3>
+                        
+
+                        
+    <div class="price-box">
+                                                                <span class="regular-price" id="product-price-40-widget-new-grid">
+                                            <span class="price">$700.00</span>                                    </span>
+                        
+        </div>
+
+                                            <!--<div class="actions">
+                                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://localhost/magento/santushti_new/index.php/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/product/40/form_key/kRiOtob5waeq8s3P/?___SID=U')"><span><span>Add to Cart</span></span></button>
+                                                        <ul class="add-to-links">
+                                                                    <li><a href="http://localhost/magento/santushti_new/index.php/wishlist/index/add/product/40/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-wishlist">Add to Wishlist</a></li>
+                                                                                                    <li><span class="separator">|</span> <a href="http://localhost/magento/santushti_new/index.php/catalog/product_compare/add/product/40/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-compare">Add to Compare</a></li>
+                                                            </ul>
+                        </div>-->
+                    </div>
+                </li>
+                        <!--<li class="item last">-->
+                <li>   
+					                                    <!--<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-green.html?___SID=U" title="New T-shirts-Green" class="product-image">
+                        <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-dark-green-plain-women-t-shirt-aaa00008726-30_2.jpg" alt="New T-shirts-Green" />
+                    </a>-->
+					
+					<a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-green.html?___SID=U">
+                               <img src="http://localhost/magento/santushti_new/media/catalog/product/cache/1/small_image/200x/9df78eab33525d08d6e5fb8d27136e95/c/l/clifton-dark-green-plain-women-t-shirt-aaa00008726-30_2.jpg">
+                    </a>
+					                    
+                                        <div class="product-info">
+                        <h3 class="product-name"><a href="http://localhost/magento/santushti_new/index.php/new-t-shirts-green.html?___SID=U" title="New T-shirts-Green)">New T-shirts-Green</a></h3>
+                        
+
+                        
+    <div class="price-box">
+                                                                <span class="regular-price" id="product-price-36-widget-new-grid">
+                                            <span class="price">$700.00</span>                                    </span>
+                        
+        </div>
+
+                                            <!--<div class="actions">
+                                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://localhost/magento/santushti_new/index.php/checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/product/36/form_key/kRiOtob5waeq8s3P/?___SID=U')"><span><span>Add to Cart</span></span></button>
+                                                        <ul class="add-to-links">
+                                                                    <li><a href="http://localhost/magento/santushti_new/index.php/wishlist/index/add/product/36/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-wishlist">Add to Wishlist</a></li>
+                                                                                                    <li><span class="separator">|</span> <a href="http://localhost/magento/santushti_new/index.php/catalog/product_compare/add/product/36/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/form_key/kRiOtob5waeq8s3P/?___SID=U" class="link-compare">Add to Compare</a></li>
+                                                            </ul>
+                        </div>-->
+                    </div>
+                </li>
+                    </ul>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://localhost/magento/santushti_new/skin/frontend/rwd/default/js/jquery.elastislide.js"></script>
+<script type="text/javascript">
+			jQuery('#carousel' ).elastislide();
+</script>

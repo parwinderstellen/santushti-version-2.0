@@ -1,0 +1,64 @@
+<?php
+  /*
+  * @copyright   Copyright ( c ) 2013 www.magebuzz.com
+  */
+  $showPopupConfig = $this->_helper()->getConfigShowPopup();
+  $hidePopupConfig = $this->_helper()->getConfigHidePopup();
+  $cookieTime      = $this->_helper()->getConfigCookieTime(); 
+  $listImage =$this->getListBannerpopup();
+  if(count($listImage)>0){
+    if($hidePopupConfig){
+      if( Mage::getModel('core/cookie')->get('showimage') != 'true'){
+        $randImage = $listImage[array_rand($listImage)];
+        $this->_model()->addShowimage($randImage['id']);   
+        Mage::getModel('core/cookie')->set('showimage', 'true', $cookieTime*24*60*60);
+      }
+    }else{
+      $randImage = $listImage[array_rand($listImage)];
+      $this->_model()->addShowimage($randImage['id']); 
+    }
+  }   
+  $imgPath   = Mage::getBaseUrl('media')."bannerpopup/".$randImage['name'];
+?>
+<?php if($showPopupConfig):?>  
+  <script type="text/javascript">  
+	<?php if(count($listImage)>0):?>
+    var $popup = jQuery.noConflict();
+    <?php if($hidePopupConfig):?>   
+      <?php if( Mage::getModel('core/cookie')->get('close_popup') != 'true'):?>
+        $popup(document).ready(function() {
+          $popup("#venture_spring_popup").fancybox({
+            afterClose: function() {
+              <?php Mage::getModel('core/cookie')->set('close_popup', 'true', $cookieTime*24*60*60);?>        
+            }
+          }).trigger('click');
+        });
+        <?php endif;?>
+      <?php else:?>
+      $popup(document).ready(function() {
+        $popup("#venture_spring_popup").fancybox({          
+        }).trigger('click');
+      });
+      <?php endif; ?>              
+    function closePopup(){  
+      jQuery.fancybox.close();
+      var ajaxurl = "<?php echo Mage::getBaseUrl() . 'bannerpopup/index/addclick?id='.$randImage['id']?>";
+      new Ajax.Request(ajaxurl, {
+        method: 'Post',
+        onSuccess: function(add_success_view) {      
+          if(add_success_view.responseText !='false')
+            {
+            window.open(add_success_view.responseText,'_newtab');; 
+          }          
+        }
+      });
+    }
+		<?php endif; ?>
+  </script>
+  <a id="venture_spring_popup" style="display:none;" href="#bannerpopup-image"></a>
+  <div id="bannerpopup-image" style="display: none;">
+    <a onclick="return closePopup();">
+      <img src="<?php echo $imgPath;?>" alt="<?php echo $randImage['title']?>">
+    </a>
+  </div>
+  <?php endif; ?>

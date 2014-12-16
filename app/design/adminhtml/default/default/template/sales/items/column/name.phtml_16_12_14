@@ -1,0 +1,127 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * @see Mage_Adminhtml_Block_Sales_Items_Column_Name
+ */
+?>
+
+<?php if ($_item = $this->getItem()): ?>
+
+
+<?php
+$productType = $_item->getProductType();
+
+
+ if( $productType == 'simple' )
+                                  
+                           {
+                                 $product_sku= $_item->getSku();
+                          
+                                  
+              
+                        }
+                        else{
+                                $child_id = Mage::getModel('catalog/product')->getIdBySku($_item->getSku());
+                          $parent_ids = Mage::getModel('catalog/product_type_configurable')->getParentIdsByChild($child_id);
+                           $product = Mage::getModel('catalog/product')->load($parent_ids[0]);
+                           $product_sku=$product->getSku();
+                           
+                               
+                        }
+
+
+                       
+?>
+
+    <h5 class="title"><span id="order_item_<?php echo $_item->getId() ?>_title"><?php echo $this->escapeHtml($_item->getName()) ?></span></h5>
+    <div><strong><?php echo $this->helper('sales')->__('SKU') ?>:</strong> <?php echo implode('<br />', Mage::helper('catalog')->splitSku($this->escapeHtml($product_sku))); ?></div>
+    <?php if ($this->getOrderOptions()): ?>
+        <dl class="item-options hello11">
+               
+        <?php 
+        $i=0;
+        foreach ($this->getOrderOptions() as $_option): ?>
+            <dt><?php echo $_option['label'] ?></dt>
+            <dd>
+            <?php if (isset($_option['custom_view']) && $_option['custom_view']): ?>
+                <?php echo $this->getCustomizedOptionValue($_option); ?>
+            <?php else: ?>
+                <?php $_option = $this->getFormattedOption($_option['value']); ?>
+                   
+                <?php echo  $_option['value']; ?>
+              <?php $productOptions= $_item->getProductOptions(); 
+
+         
+                 
+	    
+                            if($productOptions[0]['Custom Size'][$product_sku][product_status]=="addToCart" && $_option['value']=="Custom Size")
+                             {      
+                                   
+
+                                             ?>
+                                              <table>
+                                                     <tr><th>Sleeve Length:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['sleeveLength'];?> Cm</td></tr>
+                                                     <tr><th>Bust:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['bust'];?> Cm</td></tr>
+                                                     <tr><th>Waist:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['waist'];?> Cm</td></tr>
+                                                     <tr><th>Hip:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['hip'];?> Cm</td></tr>
+                                                     <tr><th>Length:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['length'];?> Cm</td></tr>
+                                                     <tr><th>To Fit Waist:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['toFitWaist'];?> Cm</td></tr>
+                                                     <tr><th>To Fit Hip:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['toFitHip'];?> Cm</td></tr>
+                                                     <tr><th>Out Seam Length:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['outSeamLength'];?> Cm</td></tr>
+                                                     <tr><th>In Seam Length:</th><td><?php  echo $productOptions[0]['Custom Size'][$product_sku]['inSeamLength'];?> Cm</td></tr>
+
+
+                                              </table>
+
+                                                 <?php 
+
+                             }
+                      ?>
+                       <?php if (isset($_option['remainder']) && $_option['remainder']): ?><span id="<?php echo $_dots = 'dots' . uniqid()?>"> ...</span><span id="<?php echo $_id = 'id' . uniqid()?>"><?php echo $_option['remainder'] ?></span>
+             
+              
+                
+                
+                
+                <script type="text/javascript">
+                    $('<?php echo $_id ?>').hide();
+                    $('<?php echo $_id ?>').up().observe('mouseover', function(){$('<?php echo $_id ?>').show();});
+                    $('<?php echo $_id ?>').up().observe('mouseover', function(){$('<?php echo $_dots?>').hide();});
+                    $('<?php echo $_id ?>').up().observe('mouseout',  function(){$('<?php echo $_id ?>').hide();});
+                    $('<?php echo $_id ?>').up().observe('mouseout',  function(){$('<?php echo $_dots ?>').show();});
+                    </script>
+                <?php endif; ?>
+            <?php endif; ?>
+            </dd>
+        <?php 
+        $i++;
+        endforeach; ?>
+        </dl>
+    <?php endif; ?>
+    <?php echo $this->escapeHtml($_item->getDescription()) ?>
+<?php endif; ?>

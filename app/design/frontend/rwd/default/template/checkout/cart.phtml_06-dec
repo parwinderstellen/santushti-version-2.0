@@ -1,0 +1,323 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Shopping cart template
+ *
+ * @var $this Mage_Checkout_Block_Cart
+ */
+?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/bootstrap.min.css') ?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/bootstrap-modal.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/suit_select.js') ?>"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+<?php $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both-prices' : 'display-single-price'; ?>
+<?php 
+
+//unset($_SESSION[product_sku]);
+//echo '<pre>';
+//print_r($_SESSION[product_sku]);
+//echo '</pre>';
+//session_destroy();
+?>
+ <input type="hidden" id="path" name="path" value="<?php echo Mage::getBaseUrl()  ?>">
+
+                     
+<div class="cart <?php echo $_priceDisplay; ?>">
+    <div class="page-title title-buttons">
+        <h1><?php echo $this->__('Shopping Cart') ?></h1>
+        <?php if(!$this->hasError()): ?>
+        <ul class="checkout-types top">
+        <?php foreach ($this->getMethods('top_methods') as $method): ?>
+            <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+            <li><?php echo $methodHtml; ?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+    </div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <?php echo $this->getChildHtml('form_before') ?>
+    <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <table id="shopping-cart-table" class="cart-table data-table">
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+            <col width="1" />
+            <col width="1" />
+            <?php endif; ?>
+
+        <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+            <thead>
+                <tr>
+                    <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Product') ?></span></th>
+
+                    <th rowspan="<?php echo $mergedCells; ?>">&nbsp;</th>
+
+                    <th class="a-center cart-price-head" colspan="<?php echo $mergedCells; ?>">
+<!--                            <div class="cart-price-placeholder">-->
+                            <span class="nobr"><?php echo $this->__('Price') ?></span>
+<!--                            </div>-->
+                    </th>
+
+                    <th rowspan="<?php echo $mergedCells; ?>" class="a-center">
+                        <?php echo $this->__('Qty') ?>
+
+                        <?php /*if ($this->helper('wishlist')->isAllowInCart()) : ?>
+                            <span class="nobr"><?php echo $this->__('Move to Wishlist') ?></span>
+                        <?php endif*/ ?>
+
+                    </th>
+
+                    <th class="a-center cart-total-head" colspan="<?php echo $mergedCells; ?>">
+<!--                            <div class="cart-total-placeholder">-->
+                            <?php echo $this->__('Subtotal') ?>
+<!--                            </div>-->
+                    </th>
+
+                    <th class="a-center" rowspan="<?php echo $mergedCells; ?>">&nbsp;</th>
+
+                </tr>
+                <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                <tr>
+                    <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                    <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                </tr>
+                <?php endif; ?>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="50" class="a-right cart-footer-actions">
+
+                        <!-- Make this button the first responder rather than empty cart -->
+                        <button type="submit" style="visibility:hidden;" name="update_cart_action" value="update_qty" title="<?php echo $this->__('Update Shopping Cart'); ?>" class="button2 btn-update"><span><span><?php echo $this->__('Update Shopping Cart'); ?></span></span></button>
+
+                        <button type="submit" name="update_cart_action" value="empty_cart" title="<?php echo $this->__('Empty Cart'); ?>" class="button2 btn-empty" id="empty_cart_button"><span><span><?php echo $this->__('Empty Cart'); ?></span></span></button>
+
+                        <button type="submit" name="update_cart_action" value="update_qty" title="<?php echo $this->__('Update Shopping Cart'); ?>" class="button2 btn-update"><span><span><?php echo $this->__('Update Shopping Cart'); ?></span></span></button>
+
+                        <span class="or">-or-</span>
+
+                        <?php if($this->getContinueShoppingUrl()): ?>
+                            <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button2 btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+                        <?php endif; ?>
+                        <!--[if lt IE 8]>
+                        <input type="hidden" id="update_cart_action_container" />
+                        <script type="text/javascript">
+                        //<![CDATA[
+                            Event.observe(window, 'load', function()
+                            {
+                                // Internet Explorer (lt 8) does not support value attribute in button elements
+                                $emptyCartButton = $('empty_cart_button');
+                                $cartActionContainer = $('update_cart_action_container');
+                                if ($emptyCartButton && $cartActionContainer) {
+                                    Event.observe($emptyCartButton, 'click', function()
+                                    {
+                                        $emptyCartButton.setAttribute('name', 'update_cart_action_temp');
+                                        $cartActionContainer.setAttribute('name', 'update_cart_action');
+                                        $cartActionContainer.setValue('empty_cart');
+                                    });
+                                }
+
+                            });
+                        //]]>
+                        </script>
+                        <![endif]-->
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+            <?php foreach($this->getItems() as $_item): 
+                
+         $productType = $_item->getProductType();
+            
+            if( $productType == 'simple' )
+                                  
+                           {
+                                  $sku[]=$_item->getSku();
+              
+                        }
+                        else{
+                                $child_id = Mage::getModel('catalog/product')->getIdBySku($_item->getSku());
+                          $parent_ids = Mage::getModel('catalog/product_type_configurable')->getParentIdsByChild($child_id);
+                           $product = Mage::getModel('catalog/product')->load($parent_ids[0]);
+                            $sku[]=$product->getSku();
+                         
+                               
+                        }
+            
+            
+                
+                echo $this->getItemHtml($_item) ?>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+           
+
+        <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+     
+ <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/tip-yellow/tip-yellow.css') ?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.poshytip.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/suit_select.js') ?>"></script>
+<script type="text/javascript">
+		//<![CDATA[
+		jQuery(function(){
+                                         
+                                        
+
+			jQuery('.tooltip_cart').poshytip();
+		
+		});
+		//]]>
+	</script>
+
+
+    </form>
+       
+       
+       <?php
+       
+ $cnt=count($_SESSION['product_sku']['Custom Size']);
+ $i=0;    
+while($i<$cnt){
+       
+      
+       
+       
+     
+                                  $product_sku=$sku[$i];
+                        
+                       
+                                   $sleeveLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['sleeveLength'];
+                                   $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$product_sku]['acrossshoulder'];
+                                    $bust=$_SESSION['product_sku']['Custom Size'][$product_sku]['bust'];
+                                    $waist=$_SESSION['product_sku']['Custom Size'][$product_sku]['waist'];
+                                    $hip=$_SESSION['product_sku']['Custom Size'][$product_sku]['hip'];
+                                    $length=$_SESSION['product_sku']['Custom Size'][$product_sku]['length'];
+                                    $toFitWaist=$_SESSION['product_sku']['Custom Size'][$product_sku]['toFitWaist'];
+                                    $toFitHip=$_SESSION['product_sku']['Custom Size'][$product_sku]['toFitHip'];
+                                    $outSeamLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['outSeamLength'];
+                                    $inSeamLength=$_SESSION['product_sku']['Custom Size'][$product_sku]['inSeamLength'];
+                                   
+                            ?>
+       
+                   
+                
+                   <div style='' class="modal custom_size_modal_<?php echo str_replace(" ","_",$product_sku);?>"  id="custom_size_modal">
+    
+       
+       <div class='modal-backdrop  in'></div>
+        <form method='post' id="measurementForm_<?php echo str_replace(" ","_",$product_sku);?>" name="measurementForm" class="measurementForm">  
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close cls"   data-dismiss="modal" aria-hidden="true">&times;</button>
+          
+          <h4 class="modal-title">SEND US YOUR MEASURES</h4> 
+        </div>
+        <div class="modal-body">
+              
+               <p>Insert all your measures in cm*</p>
+               <div id="mainPopDiv" class="mainPopDiv">
+                  
+                     
+                      <input type="hidden" id="<?php echo str_replace(" ","_",$product_sku);?>_productsku" name="productsku" value="<?php echo str_replace(" ","_",$product_sku);?>">
+                      <input type="hidden" id="<?php echo str_replace(" ","_",$product_sku);?>_customsize" name="cutomsize" value="customsize">
+                      <div class='left_pop'>
+                 <label>Sleeve Length</label> <input type="text" value="<?php echo $sleeveLength ?>"  class='required number <?php echo str_replace(" ","_",$product_sku);?>_sleeveLength' id="<?php echo str_replace(" ","_",$product_sku);?>_sleeveLength" name="sleeveLength" placeholder=""><br>
+                 <label>Across Shoulder</label> <input type="text" value="<?php echo $acrossshoulder ?>"  class='required number <?php echo str_replace(" ","_",$product_sku);?>_acrossshoulder' id="<?php echo str_replace(" ","_",$product_sku);?>_acrossshoulder" name="acrossshoulder" placeholder=""><br>
+               <label>Bust</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_bust" name="bust" value="<?php echo $bust ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_bust' placeholder=""><br> 
+              <label>Waist</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_waist" name="waist" value="<?php echo $waist ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_waist' placeholder=""><br>
+               <label>Hip</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_hip" name="hip" value="<?php echo $hip ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_hip' placeholder=""><br>
+              <label>Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_length" value="<?php echo $length ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_length' name="length" placeholder=""><br>
+                      </div>
+              <div class='right_pop'>
+              <label>To Fit Waist</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_toFitWaist" value="<?php echo $toFitWaist ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_toFitWaist' name="toFitWaist" placeholder=""><br>
+               <label>To Fit Hip</label><input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_toFitHip" value="<?php echo $toFitHip ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_toFitHip' name="toFitHip" placeholder=""><br>
+              <label>Outseam Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_outSeamLength" value="<?php echo $outSeamLength ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_outSeamLength' name="outSeamLength" placeholder=""><br>
+               <label>Inseam Length</label> <input type="text" id="<?php echo str_replace(" ","_",$product_sku);?>_inSeamLength" value="<?php echo $inSeamLength ?>" class='required number <?php echo str_replace(" ","_",$product_sku);?>_inSeamLength' name="inSeamLength" placeholder=""><br>
+              </div>
+                     
+               </div>
+          
+         </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-default cls"  data-dismiss="modal">Close</a>
+          <input type="button" value="Save Data"  id="<?php echo str_replace(" ","_",$product_sku);?>" class="save_data btn btn-primary">
+          
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+        </form>
+  </div><!-- /.modal -->
+                   
+              <?php 
+
+              $i++;
+             } ?>
+  
+
+  
+
+    <?php echo $this->getChildHtml('shopping.cart.table.after'); ?>
+    <div class="cart-forms">
+        <?php /* Extensions placeholder */ ?>
+        <?php echo $this->getChildHtml('checkout_cart_widget') ?>
+        <?php echo $this->getChildHtml('coupon') ?>
+        <?php echo $this->getChildHtml('checkout.cart.extra') ?>
+        <?php if (!$this->getIsVirtual()): echo $this->getChildHtml('shipping'); endif; ?>
+    </div>
+    <div class="cart-totals-wrapper">
+        <div class="cart-totals">
+            <?php echo $this->getChildHtml('totals'); ?>
+            <?php if(!$this->hasError()): ?>
+            <ul class="checkout-types bottom">
+            <?php foreach ($this->getMethods('methods') as $method): ?>
+                <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                <li class="method-<?php echo preg_replace("/[^_a-zA-Z0-9-]/", '-', $method); ?>"><?php echo $methodHtml; ?></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php echo $this->getChildHtml('crosssell') ?>
+</div>
+<script>
+
+
+</script>
+
+

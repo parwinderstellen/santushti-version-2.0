@@ -1,0 +1,239 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/* @var $this Mage_Wishlist_Block_Customer_Wishlist */
+?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/bootstrap.min.css') ?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/bootstrap-modal.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/suit_select.js') ?>"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+ <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/tip-yellow/tip-yellow.css') ?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.poshytip.js') ?>"></script>
+
+<script type="text/javascript">
+		//<![CDATA[
+		jQuery(function(){
+                                         
+                                        
+
+			jQuery('.tooltip_cart').poshytip();
+		
+		});
+		//]]>
+	</script>
+ <input type="hidden" id="path" name="path" value="<?php echo Mage::getBaseUrl()  ?>">
+<?php if ($this->helper('wishlist')->isAllow()) : ?>
+    <div class="my-wishlist">
+        <div class="page-title title-buttons">
+            <?php if ($this->helper('wishlist')->isRssAllow() && $this->hasWishlistItems()): ?>
+                <a href="<?php echo $this->helper('wishlist')->getRssUrl($this->getWishlistInstance()->getId()); ?>" class="link-rss"><?php echo $this->__('RSS Feed') ?></a>
+            <?php endif; ?>
+            <h1><?php echo $this->getTitle(); ?></h1>
+        </div>
+        <?php echo $this->getMessagesBlock()->toHtml() ?>
+   <form id="wishlist-view-form" action="<?php echo $this->getUrl('*/*/update', array('wishlist_id' => $this->getWishlistInstance()->getId())) ?>" method="post">
+            <?php echo $this->getChildHtml('top'); ?>
+            <div class="fieldset">
+                <?php if ($this->hasWishlistItems()): ?>
+                        <?php echo $this->getBlockHtml('formkey');?>
+                        <?php $this->getChild('items')->setItems($this->getWishlistItems()); ?>
+                        <?php echo $this->getChildHtml('items');?>
+                        <script type="text/javascript">decorateTable('wishlist-table')</script>
+                <?php else: ?>
+                    <p class="wishlist-empty"><?php echo $this->__('You have no items in your wishlist.') ?></p>
+                <?php endif ?>
+                <div class="buttons-set buttons-set2">
+                    <?php echo $this->getChildHtml('control_buttons');?>
+                </div>
+            </div>
+        </form>
+           
+           <?php 
+           
+         $config_wishlist_array = array();
+         $data['add_wishlist_item'] = $this->getWishlistItems();
+	
+		foreach ($data['add_wishlist_item'] as $itemId => $qty) {
+			$item = Mage::getModel('wishlist/item')
+				->loadWithOptions($itemId, 'info_buyRequest');
+		
+                                                  
+			if ($item->getId()) {
+			
+				$full_wishlist = $item->getBuyRequest()->toArray();
+                                                                    
+                                                                 
+				//$config_wishlist_array[$full_wishlist['product']] = $full_wishlist['appear_size'];	
+				$config_wishlist_array[]=$full_wishlist['product'];			
+			}
+		}
+                                  
+
+$cnt=count($_SESSION['product_sku']['Custom Size']);
+$i=0;
+ 
+foreach($config_wishlist_array as $product_id)
+ {
+				$sku= Mage::getResourceModel('catalog/product')->getProductsSku($product_id);
+			    $productSku[]=$sku[0][sku];
+				
+}
+$productSku=array_unique($productSku);	
+$productSku1 = array_values($productSku);
+
+ while($i<$cnt){ 
+
+		$productSku=$productSku1[$i];
+		$product_sku=str_replace(" ","_",$productSku);
+	 
+		 $sleeveLength=$_SESSION['product_sku']['Custom Size'][$productSku]['sleeveLength'];
+                 $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$productSku]['acrossshoulder'];
+          $bust=$_SESSION['product_sku']['Custom Size'][$productSku]['bust'];
+          $waist=$_SESSION['product_sku']['Custom Size'][$productSku]['waist'];
+          $hip=$_SESSION['product_sku']['Custom Size'][$productSku]['hip'];
+          $length=$_SESSION['product_sku']['Custom Size'][$productSku]['length'];
+          $toFitWaist=$_SESSION['product_sku']['Custom Size'][$productSku]['toFitWaist'];
+          $toFitHip=$_SESSION['product_sku']['Custom Size'][$productSku]['toFitHip'];
+          $outSeamLength=$_SESSION['product_sku']['Custom Size'][$productSku]['outSeamLength'];
+          $inSeamLength=$_SESSION['product_sku']['Custom Size'][$productSku]['inSeamLength'];
+	
+ ?>
+
+
+
+
+ <div style='' class="modal custom_size_modal_<?php echo $product_sku?>"  id="custom_size_modal">
+    
+       
+       <div class='modal-backdrop  in'></div>
+        <form method='post' id="measurementForm_<?php echo $product_sku?>" name="measurementForm" class="measurementForm">  
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close cls"   data-dismiss="modal" aria-hidden="true">&times;</button>
+          
+          <h4 class="modal-title">SEND US YOUR MEASURES</h4> 
+        </div>
+        <div class="modal-body">
+              
+               <div id="mainPopDiv" class="mainPopDiv">
+                  
+                     
+                      <input type="hidden" id="<?php echo $product_sku?>_productsku" name="productsku" value="<?php echo $productSku?>">
+                      <input type="hidden" id="<?php echo $product_sku?>_customsize" name="cutomsize" value="customsize">
+                      <div class='left_pop'>
+					  <div class="clearfix">
+                      <div class="popupwrap">
+                      <div class="half-section">
+					  <div class="col-sm-12"><div class="col-sm-12"><p>Insert all your measures in cm*</p></div></div>
+                          <div class="col-sm-12">
+                 <div class="col-sm-6"><label>Sleeve Length</label> <input type="text" value="<?php echo $sleeveLength ?>"  class='required number <?php echo $product_sku?>_sleeveLength' id="<?php echo $product_sku?>_sleeveLength" name="sleeveLength" placeholder=""></div>
+                 <div class="col-sm-6"><label>Across Shoulder</label> <input type="text" value="<?php echo $acrossshoulder ?>"  class='required number <?php echo $product_sku?>_acrossshoulder' id="<?php echo $product_sku?>_acrossshoulder" name="acrossshoulder" placeholder=""></div>
+              <div class="col-sm-6"> <label>Bust</label><input type="text" id="<?php echo $product_sku?>_bust" name="bust" value="<?php echo $bust ?>" class='required number <?php echo $product_sku?>_bust' placeholder=""></div> 
+              <div class="col-sm-6"><label>Waist</label> <input type="text" id="<?php echo $product_sku?>_waist" name="waist" value="<?php echo $waist ?>" class='required number <?php echo $product_sku?>_waist' placeholder=""></div>
+              <div class="col-sm-6"> <label>Hip</label><input type="text" id="<?php echo $product_sku?>_hip" name="hip" value="<?php echo $hip ?>" class='required number <?php echo $product_sku?>_hip' placeholder=""></div>
+              <div class="col-sm-6"><label>Length</label> <input type="text" id="<?php echo $product_sku?>_length" value="<?php echo $length ?>" class='required number <?php echo $product_sku?>_length' name="length" placeholder=""></div>
+                   
+           
+              <div class="col-sm-6"><label>To Fit Waist</label> <input type="text" id="<?php echo $product_sku?>_toFitWaist" value="<?php echo $toFitWaist ?>" class='required number <?php echo $product_sku?>_toFitWaist' name="toFitWaist" placeholder=""></div>
+               <div class="col-sm-6"><label>To Fit Hip</label><input type="text" id="<?php echo $product_sku?>_toFitHip" value="<?php echo $toFitHip ?>" class='required number <?php echo $product_sku?>_toFitHip' name="toFitHip" placeholder=""></div>
+             <div class="col-sm-6"> <label>Outseam Length</label> <input type="text" id="<?php echo $product_sku?>_outSeamLength" value="<?php echo $outSeamLength ?>" class='required number <?php echo $product_sku?>_outSeamLength' name="outSeamLength" placeholder=""></div>
+              <div class="col-sm-6"> <label>Inseam Length</label> <input type="text" id="<?php echo $product_sku?>_inSeamLength" value="<?php echo $inSeamLength ?>" class='required number <?php echo $product_sku?>_inSeamLength' name="inSeamLength" placeholder=""></div>
+			  <br clear="all" />
+                   <div class="text-center">
+				   <input type="button" value="Save Data"  id="<?php echo str_replace(" ","_",$product_sku);?>" class="save_data btn btn-primary">
+              </div>
+               </div>
+			</div>
+			 <div class="half-section whitetsection measureimgs">
+
+                      	<img src="<?php echo $this->getSkinUrl('images/measures.png')?>" alt="" />
+
+             </div>
+					  </div>
+                   </div>
+                 </div>    
+               </div>
+	</div>
+        <div class="modal-footer">
+         <!-- <a href="#" class="btn btn-default cls"  data-dismiss="modal">Close</a>
+          <input type="button" value="Save Data"  id="<?php //echo $product_sku ?>" class="save_data btn btn-primary">-->
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+        </form>
+  </div><!-- /.modal -->
+<?php
+$i++;
+ }
+?>
+           
+           
+           
+           
+           
+           
+           
+           
+
+        <form id="wishlist-allcart-form" action="<?php echo $this->getUrl('*/*/allcart') ?>" method="post">
+            <?php echo $this->getBlockHtml('formkey') ?>
+            <div class="no-display">
+                <input type="hidden" name="wishlist_id" id="wishlist_id" value="<?php echo $this->getWishlistInstance()->getId() ?>" />
+                <input type="hidden" name="qty" id="qty" value="" />
+            </div>
+        </form>
+
+        <script type="text/javascript">
+        //<![CDATA[
+            var wishlistForm = new Validation($('wishlist-view-form'));
+            var wishlistAllCartForm = new Validation($('wishlist-allcart-form'));
+
+            function calculateQty() {
+                var itemQtys = new Array();
+                $$('#wishlist-view-form .qty').each(
+                    function (input, index) {
+                        var idxStr = input.name;
+                        var idx = idxStr.replace( /[^\d.]/g, '' );
+                        itemQtys[idx] = input.value;
+                    }
+                );
+
+                $$('#qty')[0].value = JSON.stringify(itemQtys);
+            }
+
+            function addAllWItemsToCart() {
+                calculateQty();
+                wishlistAllCartForm.form.submit();
+            }
+        //]]>
+        </script>
+    </div>
+    <?php echo $this->getChildHtml('bottom'); ?>
+    <div class="buttons-set">
+        <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+    </div>
+<?php endif ?>

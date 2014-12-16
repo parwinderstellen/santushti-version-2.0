@@ -1,0 +1,1241 @@
+.pslogin-addedoverlay {
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 2010;
+	background-color: black;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+	/*display: none;*/
+}
+
+.pslogin-pop-up-form {
+	left: 0px;
+	top: 0px; 
+	position:fixed; 
+	width: 100%; 
+	z-index: 2020; 
+	height:100%; 
+	color:#666666; 
+	text-align:left;
+	/*display:none;*/
+	overflow-y: auto; 
+} 
+
+#pslogin-pop-up-bg {
+	max-width: 450px;
+	font-size: 12px;
+	padding: 0 10px 0 10px;
+	margin: 10% auto 5% auto;
+	color: #444;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.pslogin-share {
+	background-color: white;
+	min-height: 270px;
+	padding: 18px 21px;
+	position: relative;
+}
+
+.pslogin-fake-email-message {
+	position: fixed;
+	top: 20px;
+	width: 100%;
+	padding: 0 5%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	z-index: 1000;
+}
+
+	.pslogin-fake-email-message .content {
+		padding: 5px 10px;
+		background: #fff;
+		max-width: 960px;
+		min-width: 250px;
+		margin: 0 auto;
+		box-shadow: 0 2px 15px 0px rgba(0, 0, 0, 0.42);
+		-webkit-box-shadow: 0 2px 15px 0px rgba(0, 0, 0, 0.42);
+		-moz-box-shadow: 0 2px 15px 0px rgba(0, 0, 0, 0.42);
+		font-size: 14px;
+		color: #636363;
+	}
+
+	.pslogin-fake-email-message p {
+		margin: 10px auto;
+		text-align: left;
+	}
+
+	.pslogin-fake-email-message .close-message {
+		float: right;
+	}
+
+	.pslogin-fake-email-message .close-message:hover {
+		cursor: pointer;
+		color: #AEAEAE;
+	}
+
+
+/* general classes */
+.pslogin-share .ta-center {
+	text-align: center;
+}
+    
+    .pslogin-share h2 {
+		padding: 0px 0px 7px 0px;
+		color: #3399cc;
+		font-weight: 400;
+		font-size: 15px;
+		text-transform: uppercase;
+		border-bottom: 1px solid #DDD;
+		margin-bottom: 10px;
+    }
+
+
+	.pslogin-share .prpop-close-btn {
+		position: absolute;
+		right: 9px;
+		left: auto;
+		margin-right: 10px;
+		top: 14px;
+		text-decoration: none;
+		color: #727272;
+		font-size: 16px;
+		background: none;
+	}
+
+	.pslogin-share .prpop-close-btn:hover {
+		color: #b6aba5;
+	}
+
+	.pslogin-share p {
+		margin-bottom: 7px;
+	}
+	
+	.pslogin-share img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.pslogin-share .button-top {
+		height: 7px;
+	}
+
+	.pslogin-share a {
+		display: inline-block;
+		height: 30px;
+		color: white;
+		margin: 0 10px 10px 0;
+	}
+	
+	.pslogin-share a:hover {
+		cursor: pointer;
+		opacity: 0.7;
+		filter: apha(filter=70);
+	}
+
+	/*
+	.pslogin-share .soc-button {
+		background-image: url("images/social_retina.png");
+		background-size: 328px 185px;
+		display: block;
+		height: 30px;
+		width: 30px;
+		float: left;
+	}
+	*/
+
+/*form*/
+.pslogin-form .w25 { width: 25px; }
+.pslogin-form .w100 { width: 100px; }
+
+.pslogin-form.account-login .content {
+	margin: 0;
+}
+
+.pslogin-form.account-login .form-list label,
+#checkout-step-login .pslogin-form .form-list label { 
+	width: auto;
+	float: none; 
+}
+
+.pslogin-form.account-login .form-list .input-box,
+#checkout-step-login .pslogin-form .form-list .input-box {
+	float: none;
+}
+
+#checkout-step-login .col2-set {
+	box-sizing: border-box;
+}
+
+.pslogin-form.account-login .buttons-set {
+	min-height: 40px;
+}
+
+.pslogin-form.col2-set {
+	margin: 0;
+}
+
+.pslogin-form.col2-set .buttons-set {
+	padding: 0;
+}
+
+.pslogin-form.col2-set .fieldset {
+	margin: 15px 0;
+}
+
+	.pslogin-form button.button span,
+	.pslogin-form button.button span span {
+		height: auto;
+	}
+
+	.pslogin-share .soc-name {
+		height: 30px;
+		line-height: 30px;
+		padding: 0 7px;
+		display: block;
+		float: left;
+		box-sizing: border-box;
+	}
+
+		.pslogin-share .vkontakte {
+			background-position: -77px -78px;
+		}
+
+		.pslogin-share .facebook {
+			background-position: -5px -5px
+		}
+
+		.pslogin-share .twitter {
+			background-position: -41px -5px;
+		}
+
+		.pslogin-share .googleplus {
+			background-position: -113px -5px;
+		}
+
+/* welcome message */
+.pslogin-welcome-msg {
+	height: 25px;
+	line-height: 25px;
+	float: none;
+	display: inline-block;
+	margin: 0 0 5px 0;
+}
+
+.pslogin-welcome-msg:after {
+	clear: both;
+	content: "";
+}
+
+.pslogin-welcome-msg img {
+	height: 25px;
+	display: inline-block;
+	padding: 0 5px 0 0;
+	float: left;
+}
+
+/* Buttons */
+.pslogin-form {
+	width: 100%;
+	margin: 20px 0;
+}
+
+.pslogin-form * {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.pslogin-form.text-hidden .soc-li-text,
+.pslogin-form-register.text-hidden1 .soc-li-text {
+	display: none!important;
+}
+
+.pslogin-form .xs {
+	display: none!important;
+}
+
+.pslogin-form .md {
+	display: block;
+}
+
+.pslogin-form .pslogin-clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.pslogin-form .title {
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+
+.pslogin-form .spacer {
+	display: block;
+	margin: 10px auto;
+	position: relative;
+	text-align: center;
+	line-height: 16px!important;
+	top: auto;
+	left: auto;
+	height: auto;
+	width: auto;
+	line-height: normal;
+	overflow: visible;
+	font-size: 13px;
+}
+
+	.pslogin-form .spacer table {
+		width: 100%;
+	}
+	
+	.pslogin-form .spacer table td {
+		vertical-align: middle;
+	}
+
+	.pslogin-form .spacer .border {
+		border-top: 1px solid #e5e2e2;
+		width: 100%;
+	}
+	
+	.pslogin-form .spacer .text_or {
+		color: #b2b2b2;
+		text-align: center;
+		font-size: 11px;
+	}
+
+	.pslogin-form .spacer.show-hidden .text_or {
+		height: 20px;
+		line-height: 17px;
+		padding: 0;
+		border: 1px solid #e5e2e2;
+		border-radius: 9px;
+		-moz-border-radius: 9px;
+		-webkit-border-radius: 9px;
+	}
+
+	.pslogin-form .spacer.show-hidden .text_or:hover {
+		color: #989898;
+		cursor: pointer;
+	}
+
+	.pslogin-form .spacer .circle {
+		width: 90%;
+		height: 25px;
+		line-height: 22px;
+		font-size: 11px;
+		border: 1px solid #b2b2b2;
+		border-radius: 0px 7px;
+		margin: 0 auto;
+		background-color: #eeeeee;
+	}
+
+	.pslogin-form .spacer .circle:hover {
+		cursor: pointer;
+		background-color: #FAFAFA;
+	}
+
+
+.pslogin-form .show-hidden {
+	margin-top: 20px;
+}
+
+.pslogin-form.pageform-login .pslogin-buttons {
+	display: block;
+}
+
+.pslogin-form.pageform-register .pslogin-buttons {
+	display: inline-block;
+}
+
+	.pslogin-form .pslogin-buttons ul li {
+		display: inline-block;
+		line-height: normal;
+		margin-bottom: 5px;
+		list-style: none!important;
+		padding: 0!important;
+		background: none!important;
+	}
+
+	.pslogin-form .pslogin-buttons ul li.show-button-image {
+		background: none!important;
+	}
+
+	.pslogin-form .pslogin-buttons ul li:hover {
+		opacity: 0.9;
+		filter: alpha(opacity=90);
+	}
+
+	.pslogin-form .pslogin-buttons ul li span.background {
+		background-color: #3399cc;
+		display: inline-block;
+	}
+
+	.pslogin-form .pslogin-buttons ul li .soc-li-icon {
+		background: url('../../../images/plumrocket/pslogin/social.png');
+		display: block;
+		float: left;
+		width: 32px;
+		height: 32px;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	.pslogin-form .pslogin-buttons ul li .soc-li-icon img {
+		width: 100%;
+	}
+
+	.pslogin-form .pslogin-buttons ul li a>img {
+
+	}
+
+	.pslogin-form .pslogin-buttons ul li .soc-li-text {
+		display: block;
+		float: left;
+		height: 32px;
+		line-height: 32px;
+		vertical-align: top;
+		padding: 0;
+		text-align: center;
+		min-width: 140px;
+		box-sizing: border-box;
+		font-size: 11px;
+		color: white;
+		background-color: rgba(255,255,255, 0.2);
+	}
+
+	.pslogin-form .pslogin-buttons ul li .soc-li-text.text-hidden {
+		display: none;
+	}
+
+	.pslogin-form .pslogin-buttons ul li.facebook span.background { background-color: #1e4389; }
+	.pslogin-form .pslogin-buttons ul li.facebook .soc-li-icon { background-position: 0px 0px; }
+
+	.pslogin-form .pslogin-buttons ul li.twitter span.background { background-color: #28a9e2; }
+	.pslogin-form .pslogin-buttons ul li.twitter .soc-li-icon { background-position: -34px 0px; }
+
+	.pslogin-form .pslogin-buttons ul li.linkedin span.background { background-color: #11669c; }
+	.pslogin-form .pslogin-buttons ul li.linkedin .soc-li-icon { background-position: -168px 0px; }
+
+	.pslogin-form .pslogin-buttons ul li.yahoo span.background { background-color: #85228f; }
+	.pslogin-form .pslogin-buttons ul li.yahoo .soc-li-icon { background-position: -204px 0px; }
+
+	.pslogin-form .pslogin-buttons ul li.vkontakte span.background { background-color: #3f658c; }
+	.pslogin-form .pslogin-buttons ul li.vkontakte .soc-li-icon { background-position: -68px 0px; }
+
+	.pslogin-form .pslogin-buttons ul li.googleplus span.background { background-color: #df4b38; }
+	.pslogin-form .pslogin-buttons ul li.googleplus .soc-li-icon { background-position: -135px 0px; }
+
+
+	.pslogin-form .pslogin-buttons ul li.hotmail span.background { background-color: #f67d20; }
+	.pslogin-form .pslogin-buttons ul li.hotmail .soc-li-icon { background-position: 0px -34px; }
+
+	.pslogin-form .pslogin-buttons ul li.live span.background { background-color: #f67d20; }
+	.pslogin-form .pslogin-buttons ul li.live .soc-li-icon { background-position: -34px -205px; }
+
+	.pslogin-form .pslogin-buttons ul li.pinterest span.background { background-color: #cb2028; }
+	.pslogin-form .pslogin-buttons ul li.pinterest .soc-li-icon { background-position: -34px -34px; }
+
+	.pslogin-form .pslogin-buttons ul li.amazon span.background { background-color: #ff8e2e; }
+	.pslogin-form .pslogin-buttons ul li.amazon .soc-li-icon { background-position: -68px -34px; }
+
+	.pslogin-form .pslogin-buttons ul li.aol span.background { background-color: #008bd3; }
+	.pslogin-form .pslogin-buttons ul li.aol .soc-li-icon { background-position: -102px -34px; }
+
+	.pslogin-form .pslogin-buttons ul li.github span.background { background-color: #4382c5; }
+	.pslogin-form .pslogin-buttons ul li.github .soc-li-icon { background-position: -135px -35px; }
+
+	.pslogin-form .pslogin-buttons ul li.instagram span.background { background-color: #9a6e51; }
+	.pslogin-form .pslogin-buttons ul li.instagram .soc-li-icon { background-position: -168px -34px; }
+
+	.pslogin-form .pslogin-buttons ul li.foursquare span.background { background-color: #3472ad; }
+	.pslogin-form .pslogin-buttons ul li.foursquare .soc-li-icon { background-position: -203px -34px; }
+
+	.pslogin-form .pslogin-buttons ul li.dropbox span.background { background-color: #008bd3; }
+	.pslogin-form .pslogin-buttons ul li.dropbox .soc-li-icon { background-position: -0px -68px; }
+
+	.pslogin-form .pslogin-buttons ul li.disqus span.background { background-color: #3d7198; }
+	.pslogin-form .pslogin-buttons ul li.disqus .soc-li-icon { background-position: -32px -69px; }
+
+	.pslogin-form .pslogin-buttons ul li.livejournal span.background { background-color: #104378; }
+	.pslogin-form .pslogin-buttons ul li.livejournal .soc-li-icon { background-position: -66px -69px; }
+
+	.pslogin-form .pslogin-buttons ul li.tumblr span.background { background-color: #304e6c; }
+	.pslogin-form .pslogin-buttons ul li.tumblr .soc-li-icon { background-position: -102px -69px; }
+
+	.pslogin-form .pslogin-buttons ul li.openid span.background { background-color: #f8931f; }
+	.pslogin-form .pslogin-buttons ul li.openid .soc-li-icon { background-position: -135px -69px; }
+
+	.pslogin-form .pslogin-buttons ul li.flickr span.background { background-color: #ff0084; }
+	.pslogin-form .pslogin-buttons ul li.flickr .soc-li-icon { background-position: -169px -69px; }
+
+	.pslogin-form .pslogin-buttons ul li.wordpress span.background { background-color: #1b3f57; }
+	.pslogin-form .pslogin-buttons ul li.wordpress .soc-li-icon { background-position: -204px -69px; }
+
+	.pslogin-form .pslogin-buttons ul li.blogger span.background { background-color: #ec7825; }
+	.pslogin-form .pslogin-buttons ul li.blogger .soc-li-icon { background-position: 0px -103px; }
+
+	.pslogin-form .pslogin-buttons ul li.odnoklassniki span.background { background-color: #ee6600; }
+	.pslogin-form .pslogin-buttons ul li.odnoklassniki .soc-li-icon { background-position: -34px -103px; }
+
+	.pslogin-form .pslogin-buttons ul li.mailru span.background { background-color: #168de2; }
+	.pslogin-form .pslogin-buttons ul li.mailru .soc-li-icon { background-position: -67px -103px; }
+
+	.pslogin-form .pslogin-buttons ul li.yandex span.background { background-color: #dd0000; }
+	.pslogin-form .pslogin-buttons ul li.yandex .soc-li-icon { background-position: -102px -103px; }
+
+	.pslogin-form .pslogin-buttons ul li.paypal span.background { background-color: #195d82; }
+	.pslogin-form .pslogin-buttons ul li.paypal .soc-li-icon { background-position: -134px -103px; }
+
+	.pslogin-form .pslogin-buttons ul li.myspace span.background { background-color: #0022a0;}
+	.pslogin-form .pslogin-buttons ul li.myspace .soc-li-icon { background-position: -169px -103px; }
+
+	.pslogin-form .pslogin-buttons ul li.salesforce span.background { background-color: #00a0de; }
+	.pslogin-form .pslogin-buttons ul li.salesforce .soc-li-icon { background-position: -203px -103px; }
+
+	.pslogin-form .pslogin-buttons ul li.steamcommunity span.background { background-color: #282828; }
+	.pslogin-form .pslogin-buttons ul li.steamcommunity .soc-li-icon { background-position: -1px -137px; }
+
+	.pslogin-form .pslogin-buttons ul li.hyves span.background { background-color: #ffca63; }
+	.pslogin-form .pslogin-buttons ul li.hyves .soc-li-icon { background-position: -33px -137px; }
+
+	.pslogin-form .pslogin-buttons ul li.stackexchange span.background { background-color: #557cbf; }
+	.pslogin-form .pslogin-buttons ul li.stackexchange .soc-li-icon { background-position: -67px -137px; }
+
+	.pslogin-form .pslogin-buttons ul li.evernote span.background { background-color: #7ac141; }
+	.pslogin-form .pslogin-buttons ul li.evernote .soc-li-icon { background-position: -101px -137px; }
+
+	.pslogin-form .pslogin-buttons ul li.mixi span.background { background-color: #d1ac5b; }
+	.pslogin-form .pslogin-buttons ul li.mixi .soc-li-icon { background-position: -135px -137px; }
+
+	.pslogin-form .pslogin-buttons ul li.mydigipass span.background { background-color: #49bbeb; }
+	.pslogin-form .pslogin-buttons ul li.mydigipass .soc-li-icon { background-position: -169px -137px; }
+
+	.pslogin-form .pslogin-buttons ul li.netlog span.background { background-color: #bb2026; }
+	.pslogin-form .pslogin-buttons ul li.netlog .soc-li-icon { background-position: -203px -137px; }
+
+	.pslogin-form .pslogin-buttons ul li.qq span.background { background-color: #c46f1c; }
+	.pslogin-form .pslogin-buttons ul li.qq .soc-li-icon { background-position: 0px -171px; }
+
+	.pslogin-form .pslogin-buttons ul li.sinaweibo span.background { background-color: #bd4342; }
+	.pslogin-form .pslogin-buttons ul li.sinaweibo .soc-li-icon { background-position: -34px -171px; }
+
+	.pslogin-form .pslogin-buttons ul li.soundcloud span.background { background-color: #ff5419; }
+	.pslogin-form .pslogin-buttons ul li.soundcloud .soc-li-icon { background-position: -66px -171px; }
+
+	.pslogin-form .pslogin-buttons ul li.tencentweibo span.background { background-color: #28a4e4; }
+	.pslogin-form .pslogin-buttons ul li.tencentweibo .soc-li-icon { background-position: -100px -171px; }
+
+	.pslogin-form .pslogin-buttons ul li.verisign span.background { background-color: #b22253; }
+	.pslogin-form .pslogin-buttons ul li.verisign .soc-li-icon { background-position: -134px -171px; }
+
+	.pslogin-form .pslogin-buttons ul li.xing span.background { background-color: #005d5e;}
+	.pslogin-form .pslogin-buttons ul li.xing .soc-li-icon { background-position: -168px -171px; }
+
+	.pslogin-form .pslogin-buttons ul li.kaixin span.background { background-color: #e2332e; }
+	.pslogin-form .pslogin-buttons ul li.kaixin .soc-li-icon { background-position: -203px -171px; }
+
+	.pslogin-form .pslogin-buttons ul li.orange span.background { background-color: #ff6600; }
+	.pslogin-form .pslogin-buttons ul li.orange .soc-li-icon { background-position: -1px -205px; }
+
+
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+	.pslogin-form .pslogin-buttons ul li .soc-li-icon {
+		background: url('../../../images/plumrocket/pslogin/social_retina.png');
+		background-size: 236px 272px;
+		-webkit-background-size: 236px 272px;
+		-moz-background-size: 236px 272px;
+	}
+
+}
+
+@media screen and ( max-width: 767px ) {
+
+	.pslogin-form .pslogin-buttons {
+		width: 100%;
+	}
+
+	.pslogin-form .pslogin-buttons ul li .soc-li-text {
+		display: none;
+	}
+
+	.pslogin-form .spacer.show-hidden {
+		display: none;
+	}
+
+	.pslogin-form .pslogin-buttons ul li.pslogin-hidden {
+		display: inline-block!important;
+	}
+
+	.pslogin-form .xs {
+		display: inline-block!important;
+	}
+
+	.pslogin-form .md {
+		display: none!important;
+	}
+
+	.pslogin-form .spacer .text_or {
+
+	}
+
+}
+
+/*=== animate ===*/
+#pslogin-pop-up-bg {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration:1s;
+		animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -10%, 0);
+    -moz-transform: translate3d(0, -10%, 0);
+            transform: translate3d(0, -10%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -10%, 0);
+    -moz-transform: translate3d(0, -10%, 0);
+            transform: translate3d(0, -10%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -10%, 0);
+    -moz-transform: translate3d(0, -10%, 0);
+            transform: translate3d(0, -10%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  -moz-animation-name: fadeInDown;
+          animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    -moz-transform: translate3d(0, -2000px, 0);
+            transform: translate3d(0, -2000px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    -moz-transform: translate3d(0, -2000px, 0);
+            transform: translate3d(0, -2000px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -2000px, 0);
+    -moz-transform: translate3d(0, -2000px, 0);
+            transform: translate3d(0, -2000px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  -moz-animation-name: fadeInDownBig;
+          animation-name: fadeInDownBig;
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-10%, 0, 0);
+    -moz-transform: translate3d(-10%, 0, 0);
+            transform: translate3d(-10%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-10%, 0, 0);
+    -moz-transform: translate3d(-10%, 0, 0);
+            transform: translate3d(-10%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-10%, 0, 0);
+    -moz-transform: translate3d(-10%, 0, 0);
+            transform: translate3d(-10%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+          animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    -moz-transform: translate3d(-2000px, 0, 0);
+            transform: translate3d(-2000px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    -moz-transform: translate3d(-2000px, 0, 0);
+            transform: translate3d(-2000px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    -moz-transform: translate3d(-2000px, 0, 0);
+            transform: translate3d(-2000px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInLeftBig {
+  -webkit-animation-name: fadeInLeftBig;
+  -moz-animation-name: fadeInLeftBig;
+          animation-name: fadeInLeftBig;
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(10%, 0, 0);
+    -moz-transform: translate3d(10%, 0, 0);
+            transform: translate3d(10%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(10%, 0, 0);
+    -moz-transform: translate3d(10%, 0, 0);
+            transform: translate3d(10%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(10%, 0, 0);
+    -moz-transform: translate3d(10%, 0, 0);
+            transform: translate3d(10%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  -moz-animation-name: fadeInRight;
+          animation-name: fadeInRight;
+}
+
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    -moz-transform: translate3d(2000px, 0, 0);
+            transform: translate3d(2000px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    -moz-transform: translate3d(2000px, 0, 0);
+            transform: translate3d(2000px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    -moz-transform: translate3d(2000px, 0, 0);
+            transform: translate3d(2000px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInRightBig {
+    -webkit-animation-name: fadeInRightBig;
+    -moz-animation-name: fadeInRightBig;
+          animation-name: fadeInRightBig;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 10%, 0);
+    -moz-transform: translate3d(0, 10%, 0);
+            transform: translate3d(0, 10%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 10%, 0);
+    -moz-transform: translate3d(0, 10%, 0);
+            transform: translate3d(0, 10%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 10%, 0);
+    -moz-transform: translate3d(0, 10%, 0);
+            transform: translate3d(0, 10%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  -moz-animation-name: fadeInUp;
+          animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    -moz-transform: translate3d(0, 2000px, 0);
+            transform: translate3d(0, 2000px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    -moz-transform: translate3d(0, 2000px, 0);
+            transform: translate3d(0, 2000px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    -moz-transform: translate3d(0, 2000px, 0);
+            transform: translate3d(0, 2000px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInUpBig {
+  -webkit-animation-name: fadeInUpBig;
+  -moz-animation-name: fadeInUpBig;
+          animation-name: fadeInUpBig;
+}
+
+
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    -moz-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    -moz-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    -moz-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn .prpop-splash-container {
+  -webkit-animation-name: zoomIn;
+  -moz-animation-name: zoomIn;
+          animation-name: zoomIn;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration:1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+
+/* Effect 8: 3D flip horizontal */
+@-webkit-keyframes flip3d_hor {
+  0% {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(-110deg);
+	-moz-transform: rotateY(-110deg);
+	-ms-transform: rotateY(-110deg);
+	transform: rotateY(-110deg);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	opacity: 0;
+  }
+
+  100% {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	opacity: 1;
+  }
+}
+
+@-moz-keyframes flip3d_hor {
+  0% {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(-110deg);
+	-moz-transform: rotateY(-110deg);
+	-ms-transform: rotateY(-110deg);
+	transform: rotateY(-110deg);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	opacity: 0;
+  }
+
+  100% {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	opacity: 1;
+  }
+}
+
+
+@keyframes flip3d_hor {
+  0% {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(-110deg);
+	-moz-transform: rotateY(-110deg);
+	-ms-transform: rotateY(-110deg);
+	transform: rotateY(-110deg);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	opacity: 0;
+  }
+
+  100% {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	opacity: 1;
+  }
+}
+
+.flip3d_hor .prpop-splash-container {
+  -webkit-animation-name: flip3d_hor;
+  -moz-animation-name: flip3d_hor;
+          animation-name: flip3d_hor;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration:1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+/*background animation*/
+#prpop-addedoverlay {
+  -webkit-animation-duration: 0.25s;
+  -moz-animation-duration:0.25s;
+		animation-duration: 0.25s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+		animation-fill-mode: both;
+  -webkit-animation-name: background_a;
+  -moz-animation-name: background_a;
+		animation-name: background_a;
+}
+ 
+ 
+@-webkit-keyframes background_a {
+  0% {
+    opacity: 0;   
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@-moz-keyframes background_a {
+  0% {
+    opacity: 0;   
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes background_a {
+  0% {
+    opacity: 0;   
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}

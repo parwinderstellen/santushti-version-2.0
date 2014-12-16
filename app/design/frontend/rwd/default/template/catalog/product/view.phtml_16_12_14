@@ -1,0 +1,399 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/bootstrap.min.css') ?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/bootstrap-modal.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/suit_select.js') ?>"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); 
+
+
+
+$urlString = Mage::helper('core/url')->getCurrentUrl();
+$url = Mage::getSingleton('core/url')->parseUrl($urlString);
+$path = $url->getPath();
+$path =explode("/",$path);
+array_pop($path);
+$update_id=0;
+$sleeveLength='';
+        $bust='';
+        $acrossshoulder='';
+        $waist='';
+        $hip='';
+        $length='';
+        $toFitWaist='';
+        $toFitHip='';
+        $outSeamLength='';
+        $inSeamLength='';
+if(in_array('checkout',$path)||in_array('wishlist',$path))
+{
+        $update_id=end($path);
+       $sku=$_product->getSku();
+        $sleeveLength=$_SESSION['product_sku']['Custom Size'][$sku]['sleeveLength'];
+        $acrossshoulder=$_SESSION['product_sku']['Custom Size'][$sku]['acrossshoulder'];
+        $bust=$_SESSION['product_sku']['Custom Size'][$sku]['bust'];
+        $waist=$_SESSION['product_sku']['Custom Size'][$sku]['waist'];
+        $hip=$_SESSION['product_sku']['Custom Size'][$sku]['hip'];
+        $length=$_SESSION['product_sku']['Custom Size'][$sku]['length'];
+        $toFitWaist=$_SESSION['product_sku']['Custom Size'][$sku]['toFitWaist'];
+        $toFitHip=$_SESSION['product_sku']['Custom Size'][$sku]['toFitHip'];
+        $outSeamLength=$_SESSION['product_sku']['Custom Size'][$sku]['outSeamLength'];
+        $inSeamLength=$_SESSION['product_sku']['Custom Size'][$sku]['inSeamLength'];
+	?>
+
+		<script>
+	//alert("hi");
+		jQuery(document).ready(function(){	
+		jQuery("#cust_size").hide();
+		
+		var value ='<table border=0px><tr><th colspan="5" style="text-align:center; background-color:#87C540;"> Your Custom Size </th></tr><tr class="even_1"><th >Sleeve Length</th><td class="val_even"><?php echo $sleeveLength;?></td><td></td><th>Across Shoulder</th><td class="val_even"><?php echo $acrossshoulder ;?></td></tr><tr class="odd_1"><th>Waist</th><td class="val_odd"><?php echo $waist ?></td><td></td><th class="th_heading">Hip</th><td class="val_odd"><?php echo $hip; ?></td></tr><tr class="even_1"><th>Length</th><td class="val_even"><?php echo $length ;?></td><td></td><th class="th_heading">To Fit Waist</th><td class="val_even"><?php echo $toFitWaist; ?></td></tr><tr class="odd_1"><th>To Fit Hip</th><td class="val_odd"><?php echo $toFitHip;?></td><td></td><th>Outseam Length</th><td class="val_odd"><?php echo $outSeamLength ; ?></td></tr><tr class="even_1"><th class="th_heading">Inseam Length</th><td class="val_even"><?php echo $inSeamLength ; ?></td><td></td><th class="th_heading">Bust</th><td class="val_even"><?php echo $bust  ; ?></td></tr></table>';
+	   
+		jQuery("#cust_size").show();  		
+		jQuery("#cust_size").html(value);
+		
+		});	
+	
+	</script>   
+	
+	<?php   
+	   } 
+?>
+
+
+<?php
+//echo '<pre>';
+//print_r($_product);
+//echo '</pre>';
+//unset($_SESSION[product_sku]);
+?>
+<input type="hidden" id="customSizeSts" name="customSizeSts" value="<?php echo $update_id?>">
+<input type="hidden" id="path" name="path" value="<?php echo Mage::getBaseUrl()  ?>">
+
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+
+<div class="product-view">
+    <div class="product-essential">
+        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+            <?php echo $this->getBlockHtml('formkey') ?>
+            <div class="no-display">
+                <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                <input type="hidden" name="related_product" id="related-products-field" value="" />
+            </div>
+
+            <div class="product-img-box">
+                <div class="product-name">
+                    <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                </div>
+                <?php echo $this->getChildHtml('media') ?>
+            </div>
+
+            <div class="product-shop">
+                <div class="product-name">
+                    <span class="h1"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+                </div>
+
+                <div class="price-info">
+                    <?php echo $this->getPriceHtml($_product); ?>
+                    <?php echo $this->getChildHtml('bundle_prices') ?>
+                    <?php echo $this->getTierPriceHtml() ?>
+                </div>
+
+                <div class="extra-info">
+                    <?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
+                    <?php echo $this->getChildHtml('product_type_availability'); ?>
+                </div>
+
+                <?php echo $this->getChildHtml('alert_urls') ?>
+
+                <?php if ($_product->getShortDescription()):?>
+                    <div class="short-description">
+                        <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                    </div>
+                <?php endif;?>
+<a href="javascript:void(0)" class="size_chart">Size Chart</a>
+                   <div id="msg"></div>
+
+                <?php echo $this->getChildHtml('other');?>
+
+                <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                    <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                <?php endif;?>
+
+            </div>
+
+            <div class="add-to-cart-wrapper">
+			
+                <?php echo $this->getChildHtml('product_type_data') ?>
+                <?php echo $this->getChildHtml('extrahint') ?>
+               <?php if (!$this->hasOptions()):?>
+                    <div class="add-to-box">
+                        <?php if($_product->isSaleable()): ?>
+                            <?php echo $this->getChildHtml('addtocart') ?>
+                            <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                                <span class="or"><?php echo $this->__('OR') ?></span>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        <?php echo $this->getChildHtml('addto') ?>
+                        <?php echo $this->getChildHtml('sharing') ?>
+                    </div>
+                    <?php echo $this->getChildHtml('extra_buttons') ?>
+                <?php elseif (!$_product->isSaleable()): ?>
+                    <div class="add-to-box">
+                        <?php echo $this->getChildHtml('addto') ?>
+                        <?php echo $this->getChildHtml('sharing') ?>
+                    </div>
+                <?php endif; ?>
+		
+            </div>
+           
+		<div class="clearer"></div>
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+            <?php endif;?>
+        </form>
+           
+			<div style='display:none' class="modal" id="custom_size_modal">
+    
+       <div class='modal-backdrop  in'></div>
+        <form method='post' id="measurementForm" name="measurementForm" class="measurementForm">  
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close cls"   data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2 class="modal-title"><?php echo $_product->name;?>
+                    </h2>
+          <h4 class="modal-title">SEND US YOUR MEASURES</h4> 
+        </div>
+        <div class="modal-body">
+         <div class="container">
+          <div class="row"> 
+          <div class="popupwrap">  
+           <div class="half-section">
+          	 <div class="col-sm-12 col-md-12"> 
+            <div class="row">
+               <div class="col-sm-12"><p>Insert all your measures in cm*</p></div>
+               <div id="mainPopDiv" class="mainPopDiv">
+                  
+                     
+                      <input type="hidden" id="productsku" name="productsku" value="<?php echo $_product->getSku(); ?>">
+                      <input type="hidden" id="customsize" name="cutomsize" value="customsize">
+                      <div class='left_pop'>
+            <div class="col-sm-6"><input type="text" value='<?php echo $sleeveLength;?>' class='required number' id="sleeveLength" name="sleeveLength" placeholder="Sleeve Length" /></div>
+            <div class="col-sm-6"><input type="text" id="acrossshoulder"  value='<?php echo $acrossshoulder;?>' name="acrossshoulder" class='required number' placeholder="Across Shoulder" /></div>
+            <div class="col-sm-6"><input type="text" id="bust"  value='<?php echo $bust;?>' name="bust" class='required number' placeholder="Bust" /></div>
+            <div class="col-sm-6"><input type="text" id="waist"  value='<?php echo $waist;?>' name="waist" class='required number' placeholder="Waist" /></div>
+            <div class="col-sm-6"><input type="text" id="hip" name="hip"  value='<?php echo $hip;?>' class='required number' placeholder="Hip" /></div>
+            <div class="col-sm-6"><input type="text" id="length" value='<?php echo $length;?>' class='required number' name="length" placeholder="Length" /> </div>           
+            <div class="col-sm-6"><input type="text" id="toFitWaist"  value='<?php echo $toFitWaist;?>' class='required number' name="toFitWaist" placeholder="To Fit Waist" /></div>
+            <div class="col-sm-6"><input type="text" id="toFitHip"  value='<?php echo $toFitHip;?>' class='required number' name="toFitHip" placeholder="To Fit Hip" /></div>
+            <div class="col-sm-6"><input type="text" id="outSeamLength"  value='<?php echo $outSeamLength;?>' class='required number' name="outSeamLength" placeholder="Outseam Length" /></div>
+            <div class="col-sm-6"><input type="text" id="inSeamLength"  value='<?php echo $inSeamLength;?>' class='required number' name="inSeamLength" placeholder="Inseam Length" /></div>
+              </div>
+            </div>         
+               </div>
+               
+               <div class="text-center"><input type="button" value="Add Your Measures"  id="save_data" class="btn btn-primary"></div>
+              </div>
+           </div>
+           <div class="half-section whitetsection text-center">
+           		<img src="<?php echo $this->getSkinUrl('images/measures.png'); ?>" alt="" />
+           </div>
+           </div>
+             </div>
+          </div>
+         </div>
+        <div class="modal-footer">
+          <!--a href="#" class="btn btn-default cls"  data-dismiss="modal">Close</a-->
+          
+          <p>Let Us Make the Your Unique Desired Dress</p>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+        </form>
+  </div><!-- /.modal -->
+  
+  
+  <div style='display:none' class="modal" id="size_chart">
+    
+       
+       <div class='modal-backdrop  in'></div>
+        <form method='post' id="measurementForm" name="measurementForm" class="measurementForm">  
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close cls"   data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2 class="modal-title"><?php echo $_product->name;?><br>
+                    </h2>
+          <h4 class="modal-title">SEND US YOUR MEASURES</h4> 
+        </div>
+        <div class="modal-body">
+              
+	  <!--  <p><img src="http://www.yourshoppingkart.com/mailer-images/KURTA-masurments.jpg"></p>-->
+		<p><img src="<?php echo $this->getSkinUrl('images/Womens-size-Common_zps0c0585ce.jpg'); ?>"></p>
+  
+          
+         </div>
+        
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+        </form>
+  </div><!-- /.modal -->
+  
+        <script type="text/javascript">
+        //<![CDATA[
+        
+            
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function(button, url) {
+                if (this.validator.validate()) {
+                    var form = this.form;
+                    var oldUrl = form.action;
+
+                    if (url) {
+                       form.action = url;
+                    }
+                    var e = null;
+                    try {
+                        this.form.submit();
+                    } catch (e) {
+                    }
+                    this.form.action = oldUrl;
+                    if (e) {
+                        throw e;
+                    }
+
+                    if (button && button != 'undefined') {
+                        button.disabled = true;
+                    }
+                }
+            }.bind(productAddToCartForm);
+
+            productAddToCartForm.submitLight = function(button, url){
+                if(this.validator) {
+                    var nv = Validation.methods;
+                    delete Validation.methods['required-entry'];
+                    delete Validation.methods['validate-one-required'];
+                    delete Validation.methods['validate-one-required-by-name'];
+                    // Remove custom datetime validators
+                    for (var methodName in Validation.methods) {
+                        if (methodName.match(/^validate-datetime-.*/i)) {
+                            delete Validation.methods[methodName];
+                        }
+                    }
+
+                    if (this.validator.validate()) {
+                        if (url) {
+                            this.form.action = url;
+                        }
+                        this.form.submit();
+                    }
+                    Object.extend(Validation.methods, nv);
+                }
+            }.bind(productAddToCartForm);
+        //]]>
+      
+jQuery('#product-options-wrapper .options-list li input').click(function() {
+     var litext=jQuery.trim(jQuery(this).next('span').find('label').text());
+ 	  /* if (litext.indexOf("Custom Size") >= 0)
+		 {
+			alert("hello");
+		 } */
+		 
+	if(litext=='Custom Size' || litext.indexOf("Custom Size") >= 0){ /* add new code to match ID  for pop up*/
+        jQuery("#custom_size_modal").show();  
+      }
+      else{
+              var productSku = jQuery('#productsku').val();
+           
+              jQuery.post('<?php echo Mage::getBaseUrl()  ?>measurement',{
+                    
+                     sizeOption:litext,
+                     productSku: productSku
+             },function(data){
+			
+		//alert(data);
+	});
+             
+      }
+     })
+     
+        jQuery(".cls").click(function(){
+             
+               if(jQuery("#customSizeSts").val()==0){
+                             jQuery( ".radio" ).prop( "checked", false );
+                }
+       
+            jQuery("#custom_size_modal").hide();
+	    jQuery("#size_chart").hide();
+           
+    })
+    jQuery(".size_chart").click(function(){
+          jQuery("#size_chart").show()
+    })
+    
+
+        </script>
+    </div>
+
+    <div class="product-collateral toggle-content tabs">
+        <?php if ($detailedInfoGroup = $this->getChildGroup('detailed_info', 'getChildHtml')):?>
+            <dl id="collateral-tabs" class="collateral-tabs">
+                <?php foreach ($detailedInfoGroup as $alias => $html):?>
+                    <dt class="tab"><span><?php echo $this->escapeHtml($this->getChildData($alias, 'title')) ?></span></dt>
+                    <dd class="tab-container">
+                        <div class="tab-content"><?php echo $html ?></div>
+                    </dd>
+                <?php endforeach;?>
+            </dl>
+        <?php endif; ?>
+    </div>
+	
+		<!----- Display  related_products--Block----------->
+		
+		 <?php echo $this->getChildHtml('related_products') ?>
+		 
+		 <!----- End Of related_products--Block----------->
+	
+	<!------ Display Recent view Products--------------->
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('recent_view_product')->toHtml();?>
+	<!------ End Of  Recent  view Products- Block -------------->
+
+    <?php echo $this->getChildHtml('upsell_products') ?>
+    <?php echo $this->getChildHtml('product_additional_data') ?>
+
+</div>

@@ -1,0 +1,91 @@
+<div class="footer-container">
+   <div class="footer">
+     <div class="container">
+     <div class="row">
+       <div class="col-sm-5">
+        <div class="footer-left">
+            <div class="inner-left">
+                <img src="http://localhost/magento/santushti_new/skin/frontend/rwd/default/images/logo.PNG"/>
+                    <p style="text-align: justify;"><span class="message_content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
+<p style="text-align: justify;"><span class="message_content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </span></p>
+<p>&nbsp;</p>            </div>
+        </div>
+       </div>
+       <div class="col-sm-7 graybg">
+        <div class="footer-right">
+        <div class="row">
+            <div class="col-sm-4">
+<div class="links">
+<div class="block-title"><strong><span>Information</span></strong></div>
+<ul>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U"> Follow us un facebook</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U"> Follow us on twitter</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U"> Follow us on linkedin</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U"> RSS feeds</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="links">
+<div class="block-title"><strong><span>Links</span></strong></div>
+<ul>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=Uabout-magento-demo-store/">About Us</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U">Terms of Use</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U">Club Info and FAQ's</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=Uprivacy-policy-cookie-restriction-mode/">Privacy Policy</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=Ucontacts/">Contact us</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="links">
+<div class="block-title"><strong><span>Customer Service</span></strong></div>
+<ul>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U">Ask in forum</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U">Help Desk</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U">Payment Method</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U">Custom Work</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U">Promotions</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="links">
+<div class="block-title"><strong><span>My Account</span></strong></div>
+<ul>
+<li><a href="javascript:socialLogin();">Login</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/checkout/cart/?___SID=U">View Cart</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/wishlist/?___SID=U">Wishlist</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/checkout/cart/?___SID=U">Check out</a></li>
+<li><a href="http://localhost/magento/santushti_new/index.php/?___SID=U">Track My Order</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-8">
+<div class="links">
+<div class="block-title"><strong><span>Contact Us</span></strong></div>
+<ul class="last-list">
+<li>Address: No 40 Baria Sreet 133/2 Chandigarh City, Chandigarh</li>
+<li><a href="mailto:support@santushti.com">Email: support@santushti.com</a></li>
+<li>Phone1: 0123456789<br /> Phone2: 0123456789</li>
+</ul>
+</div>
+</div><div class="currency-switcher">
+    <label for="select-currency">Your Currency:</label>
+    <select id="select-currency" name="currency" title="Your Currency" onchange="setLocation(this.value)">
+                <option value="http://localhost/magento/santushti_new/index.php/directory/currency/switch/currency/INR/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/?___SID=U">
+            Indian Rupee - INR        </option>
+            <option value="http://localhost/magento/santushti_new/index.php/directory/currency/switch/currency/USD/uenc/aHR0cDovL2xvY2FsaG9zdC9tYWdlbnRvL3NhbnR1c2h0aV9uZXcv/?___SID=U" selected="selected">
+            US Dollar - USD        </option>
+        </select>
+</div>
+         </div>
+        </div>
+      </div>
+     </div>
+     </div>
+      
+   </div>
+   
+    <address class="copyright">&copy; 2014 Santushti. All Rights Reserved.</address>
+</div>

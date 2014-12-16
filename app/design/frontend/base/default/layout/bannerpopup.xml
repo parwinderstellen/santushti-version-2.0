@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+		<cms_index_index>
+			<reference name="head">
+        <action method="addItem"><type>skin_js</type><name>js/magebuzz/jquery-1.7.1.min.js</name></action>
+				<action method="addItem"><type>skin_js</type><name>js/magebuzz/fancybox/jquery.fancybox.js</name></action>				
+			  <action method="addCss"><stylesheet>css/jquery.fancybox.css</stylesheet></action>
+			</reference>			
+			<reference name="before_body_end">
+				<block type="bannerpopup/bannerpopup" name="bannerpopup" template="bannerpopup/bannerpopup.phtml" />
+			</reference>	
+		</cms_index_index>
+</layout> 

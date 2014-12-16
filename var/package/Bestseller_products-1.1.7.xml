@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Bestseller_products</name>
+    <version>1.1.7</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL 3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>This extension is display best seller product.</summary>
+    <description>This extension is display best seller product.</description>
+    <notes>Best Seller</notes>
+    <authors><author><name>Capacity Web Solutions</name><user>capacitywebsolutions</user><email>magento@capacitywebsolutions.com</email></author></authors>
+    <date>2014-09-18</date>
+    <time>12:04:56</time>
+    <contents><target name="magecommunity"><dir name="CapacityWebSolutions"><dir name="Bestseller"><dir name="Block"><file name="Bestseller.php" hash="07ffa1bc9a629e6957d897f185e38d04"/></dir><dir name="Helper"><file name="Data.php" hash="bc0bf539b64b2e6e709df40983cdd3dc"/></dir><dir name="controllers"><file name="IndexController.php" hash="e7348683b15be235f0d1756eccd5b755"/></dir><dir name="etc"><file name="config.xml" hash="7b0985e0aa59c24e25ee979cfbed4a7a"/><file name="system.xml" hash="b863b228c2ba0f4a0b7772a196b2e3ba"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="bestseller"><file name="bestseller-responsive.phtml" hash="6b4494d9f833df62bce7b9ffae96523c"/><file name="bestseller.phtml" hash="72a89e2c240fd0b4b16f6462fb53c4f0"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="CapacityWebSolutions_Bestseller.xml" hash="78f9e48e2abe50655fca24708da017c3"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>5.6.0</max></php></required></dependencies>
+</package>

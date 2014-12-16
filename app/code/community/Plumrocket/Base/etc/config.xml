@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+
+	<modules>
+		<Plumrocket_Base>
+			<version>1.0.2</version>
+		</Plumrocket_Base>
+	</modules>
+
+	<global>
+		<helpers>
+			<plumbase>
+				<class>Plumrocket_Base_Helper</class>
+			</plumbase>
+		</helpers>
+		<models>
+			<plumbase>
+				<class>Plumrocket_Base_Model</class>
+				<resourceModel>base_mysql4</resourceModel>
+			</plumbase>
+		</models>
+	</global>
+
+	<adminhtml>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+					<plumrocket_base_notitications>
+						<type>singleton</type>
+						<class>plumbase/feed</class>
+						<method>checkUpdate</method>
+					</plumrocket_base_notitications>
+				</observers>
+			</controller_action_predispatch>
+		</events>
+	</adminhtml>
+
+	<default>
+		<plumbase>
+			<notifications>
+				<feed_url>store.plumrocket.com/notificationmanager/feed/</feed_url>
+				<popup_url>widgets.magentocommerce.com/notificationPopup</popup_url>
+				<severity_icons_url>widgets.magentocommerce.com/%s/%s.gif</severity_icons_url>
+				<use_https>1</use_https>
+				<frequency>1</frequency>
+			</notifications>
+		</plumbase>
+	</default>
+</config> 

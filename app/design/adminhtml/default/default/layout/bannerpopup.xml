@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <bannerpopup_adminhtml_bannerpopup_edit>
+		<update handle="editor"/>
+    </bannerpopup_adminhtml_bannerpopup_edit>
+    <bannerpopup_adminhtml_bannerpopup_index>
+		<update handle="editor"/>
+        <reference name="content">
+            <block type="bannerpopup/adminhtml_bannerpopup" name="bannerpopup" />
+        </reference>
+    </bannerpopup_adminhtml_bannerpopup_index>
+</layout>

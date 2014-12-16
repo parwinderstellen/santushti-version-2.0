@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+    <name>Chapagain_AutoCurrency</name>
+    <version>0.1.9</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>A currency switcher extension which automatically switches store currency based on visitor's IP address.</summary>
+    <description>Auto Currency extension tracks visitor's IP address and automatically changes the store currency to the visitor's location currency. Visitor can switch to his/her desired currency at any time.&#xD;
+&#xD;
+This extension uses MaxMind's GeoIP technology for IP address lookup.&#xD;
+&#xD;
+No extra configuration settings is to be made. Just install the module in your multi-currency Magento shop and the module will work on the fly.&#xD;
+&#xD;
+Features:-&#xD;
+&#xD;
+Easy to install and use&#xD;
+100% Free&#xD;
+100% Open Source</description>
+    <notes>Minor text change for configuration settings option</notes>
+    <authors><author><name>Mukesh Chapagain</name><user>chapagain</user><email>mukesh.chapagain@gmail.com</email></author></authors>
+    <date>2013-10-22</date>
+    <time>06:00:40</time>
+    <contents><target name="magecommunity"><dir name="Chapagain"><dir name="AutoCurrency"><dir name="Helper"><file name="Data.php" hash="9ae32ce80508d03b79fd462228c7d2ee"/></dir><dir name="Model"><file name="Store.php" hash="f4ccbef38b82b6a9b27093da2ce660e4"/></dir><dir name="etc"><file name="config.xml" hash="d8b81e0591d45ee5a188753e350233b8"/><file name="system.xml" hash="b581f1aeb562ef9e220489351bf58d5c"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Chapagain_AutoCurrency.xml" hash="dd65769f686b4c12011f5d09e18249ff"/></dir></target><target name="mage"><dir name="var"><dir name="geoip"><file name="GeoIP.dat" hash="9533bdd7c9705ad2bec16dba59ce092f"/><file name="geoip.inc" hash="f2e497053c5d7dbd39431d14a87b2b27"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

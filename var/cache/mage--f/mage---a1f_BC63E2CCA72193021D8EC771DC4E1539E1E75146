@@ -1,0 +1,6 @@
+<script type="text/javascript" src="http://localhost/magento/santushti_new/skin/frontend/base/default/js/jmodernizr.custom.17475.js"></script>
+
+<script type="text/javascript" src="http://localhost/magento/santushti_new/skin/frontend/rwd/default/js/jquery.elastislide.js"></script>
+<script type="text/javascript">
+			jQuery('#carousel' ).elastislide();
+</script>

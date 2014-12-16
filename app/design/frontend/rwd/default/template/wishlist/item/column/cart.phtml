@@ -1,0 +1,134 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/* @var $this Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart */
+/* @var Mage_Wishlist_Model_Item $item */
+$item = $this->getItem();
+$product = $item->getProduct();
+$options = $this->getChild('customer.wishlist.item.options')
+    ->setItem($item)
+    ->getConfiguredOptions();
+
+?>
+<div class="cart-cell">
+<?php if ($product->isSaleable()): ?>
+    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" onclick="addWItemToCart(<?php echo $item->getId()?>);" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+<?php else: ?>
+    <?php if ($product->getIsSalable()): ?>
+        <p class="availability in-stock">
+            <span class="label"><?php echo $this->helper('catalog')->__('Availability:') ?></span>
+            <span class="value"><?php echo $this->helper('catalog')->__('In stock') ?></span>
+        </p>
+    <?php else: ?>
+        <p class="availability out-of-stock">
+            <span class="label"><?php echo $this->helper('catalog')->__('Availability:') ?></span>
+            <span class="value"><?php echo $this->helper('catalog')->__('Out of stock') ?></span>
+        </p>
+    <?php endif; ?>
+<?php endif; ?>
+</div>
+<?php if ($product->isVisibleInSiteVisibility()): ?>
+    <p><a class="link-edit button button-secondary" href="<?php echo $this->getItemConfigureUrl($item) ?>"><?php echo $this->__('Edit') ?></a></p>
+<?php endif ?>
+<?php foreach($this->getSortedChildren() as $childName):?>
+    <?php echo $this->getChildHtml($childName, false);?>
+<?php endforeach;?>
+</div>
+  <?php
+
+  if($options[0]['value']=="Custom Size"||$options[1]['value']=="Custom Size"){
+         
+	   echo  $productSku=$product->getSku();
+		 $product_sku=str_replace(" ","_",$productSku);
+		 $product_id = Mage::getModel("catalog/product")->getIdBySku($productSku );
+		 $customerData = Mage::getSingleton('customer/session')->getCustomer();
+         $customer_id= $customerData->getId();
+	     $conn = Mage::getSingleton('core/resource')->getConnection('core_read');
+         $sql1= "select * from wishlist_custom_size where customer_id=$customer_id and product_id=".$product_id;
+         $dta = $conn->fetchAll($sql1);
+         $customOption=unserialize($dta[0][custom_option]);
+        
+         $_SESSION['product_sku']['Custom Size'][$productSku]['sleeveLength']=$customOption[$productSku]['sleeveLength']; 
+         $_SESSION['product_sku']['Custom Size'][$productSku]['bust']=$customOption[$productSku]['bust'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['waist'] =$customOption[$productSku]['waist'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['hip']=$customOption[$productSku]['hip'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['length']=$customOption[$productSku]['length'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['toFitWaist']=$customOption[$productSku]['toFitWaist'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['toFitHip']=$customOption[$productSku]['toFitHip'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['outSeamLength']=$customOption[$productSku]['outSeamLength'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['inSeamLength']=$customOption[$productSku]['inSeamLength'];
+         
+         $_SESSION['product_sku']['Custom Size'][$product_sku]['acrossshoulder']=$customOption[$productSku]['acrossshoulder'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['armHole']=$customOption[$productSku]['armHole'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['neckDeepFront']=$customOption[$productSku]['neckDeepFront'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['neckDeepBack']=$customOption[$productSku]['neckDeepBack'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['thigh']=$customOption[$productSku]['thigh'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['knee']=$customOption[$productSku]['knee'];
+         $_SESSION['product_sku']['Custom Size'][$productSku]['mori']=$customOption[$productSku]['mori'];
+	
+      
+        
+         
+         $sleeveLength=$customOption[$productSku]['sleeveLength'];
+         $acrossshoulder=$customOption[$productSku]['acrossshoulder'];
+         $bust=$customOption[$productSku]['bust'];
+         $waist=$customOption[$productSku]['waist'];
+         $hip=$customOption[$productSku]['hip'];
+         $length=$customOption[$productSku]['length'];
+         $toFitWaist=$customOption[$productSku]['toFitWaist'];
+         $toFitHip=$customOption[$productSku]['toFitHip'];
+         $outSeamLength=$customOption[$productSku]['outSeamLength'];
+         $inSeamLength=$customOption[$productSku]['inSeamLength'];
+         $armHole=$customOption[$productSku]['armHole'];
+      $neckDeepFront=$customOption[$productSku]['neckDeepFront'];
+         $neckDeepBack=$customOption[$productSku]['neckDeepBack'];
+         $thigh=$customOption[$productSku]['thigh'];
+         $knee=$customOption[$productSku]['knee'];
+         $mori=$customOption[$productSku]['mori'];
+                                         
+         
+			
+		$tooltip_html="<div id='drees_measures'><h2>Dress Measures</h2>"
+                                        . " <ul><li><span>Neck Deep Front - $neckDeepFront cm</span><span>Neck Deep Back - $neckDeepBack cm</span></li>"
+                                        . "<li><span>Sleeve Length - $sleeveLength cm</span><span>Across Shoulder - $acrossshoulder cm</span></li>"
+                                        . "<li><span>Arm Hole - $armhole cm</span><span>Bust - $bust cm</span></li>"
+                                        . "<li><span>Waist - $waist cm</span><span>Hip - $hip cm</span></li>"
+                                        . "<li><span>Length - $length cm</span><span>To Fit Waist - $toFitWaist cm</span></li>"
+                                        . "<li><span>To Fit Hip - $toFitHip cm</span><span>Out Seam Length - $outSeamLength cm</span></li>"
+                                        . "<li><span>In Seam Length - $inSeamLength cm</span><span>Thigh - $thigh cm</span></li>"
+                                        . "<li><span>Knee - $knee cm</span><span>Mori - $mori cm</span></li>"
+                                        . "</ul>";
+							
+		 
+		 
+		 
+         ?>
+	 <span id='<?php echo $product_sku; ?>'> <a class="tooltip_cart" id="<?php echo $product_sku?>_tool" title="<?php echo $tooltip_html; ?>" href="#">View Meaurement</a></span>	 
+  <a href="#" class='pop_btn' id='<?php echo $product_sku?>'>Edit Meaurement</a> 
+  <?php
+         
+  }
+?>

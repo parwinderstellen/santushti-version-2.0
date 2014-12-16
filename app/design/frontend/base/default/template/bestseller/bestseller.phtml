@@ -1,0 +1,204 @@
+<?php
+/***************************************************************************
+	@extension	: Bestseller Product.
+	@copyright	: Copyright (c) 2014 Capacity Web Solutions.
+	( http://www.capacitywebsolutions.com )
+	@author		: Capacity Web Solutions Pvt. Ltd.
+	@support	: magento@capacitywebsolutions.com	
+***************************************************************************/
+?>
+<style>
+.productList { float:left; width:720px; }
+.productList .product { background:#fff; border:1px solid #ccc; padding:5px;  float:left; margin:10px 8px 10px 0; text-align:center; }
+.productList .product .cl { padding:0 0 0 0px; text-align:center;}
+.productList .product .prodDetails {text-align:center; padding:0 0 0 0px;  }
+.productList .product .addCompare { text-align:center;  clear:both; }
+.productList .product .addWishlist {clear:both; text-align:center; }
+</style>
+<?php
+	$result = $this->getBestsellerProduct();
+	$collection = Mage::getResourceModel('catalog/product_collection');
+	$collection->addFieldToFilter('entity_id',array('in'=>$result))->load();
+	$foundIds = array_intersect($result,array_keys($collection->toArray()));
+	$result = array_values($foundIds);
+	$upperLimit = ($this->getLimit()) ? $this->getLimit() : 1; 
+	$itemPerRow = ($this->getItemsPerRow()) ? $this->getItemsPerRow() : 1 ;
+	$model = Mage::getModel('catalog/product');
+	$enabled = Mage::getStoreConfig('bestseller/general/enabled'); 
+	$products_price = Mage::getStoreConfig('bestseller/general/products_price');  
+	$review = Mage::getStoreConfig('bestseller/general/review'); 
+	$out_of_stoke = Mage::getStoreConfig('bestseller/general/out_of_stoke'); 
+ 
+?>
+ <?php if($enabled == 1): ?>
+<div class="sectionHead"><h2><?php if(count($result) > 0) { echo $this->getHeader(); } ?></h2></div>
+	<table border="0" cellpadding="0" cellspacing="0" class="productList">
+		<?php if ($out_of_stoke == 0) { ?>
+	  	<tr>
+          <?php
+			$i=0; $x = 1;
+			for($cnt = 0; $cnt<count($result); $cnt++)
+			{
+				$_product = $model->load($result[$cnt]);  //getting product object for particular product id
+								
+				$visibility = $_product->getData('visibility');
+				$status =  $_product->getData('status');
+				$is_salable = $_product->getData('is_salable');
+				if($status == 1 && $visibility == 4)
+				{	 
+				 if ($is_salable == 1 )
+				 {  
+				  if($x <= $upperLimit)
+				  {
+				   if($i>($itemPerRow-1))
+					 echo '<tr valign="top">';
+		  ?>
+			<td class="product">
+				<div class="prodimage">
+					<a href="<?php echo $this->getBaseUrl().$_product['url_path']; ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
+					<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(($this->getImageHeight()) ? $this->getImageHeight() : 135,($this->getImageWidth()) ? $this->getImageWidth() : 135); ?>" alt="<?php echo $this->htmlEscape($_product['name']) ?>"/></a>
+				</div>
+				<div align="center">
+					<div class="prodDetails" align="center" style="width:150px;" >
+						<a href="<?php echo $this->getBaseUrl().$_product['url_path'] ?>" title="<?php echo $this->htmlEscape($_product['name']) ?>"><?php echo $this->htmlEscape($_product['name']) ?></a>
+						<?php 
+						    if($review == 1) 
+							{
+								$_product = Mage::getModel('catalog/product')->load($_product->getId());
+								echo $this->getReviewsSummaryHtml($_product, 'short'); 
+							}
+							if($products_price == 1) 
+							{
+								$_product = Mage::getModel('catalog/product')->load($_product->getId());
+								echo $this->getPriceHtml($_product, true); 
+							}
+						?>                
+					</div>
+						<?php $addtocartval = $this->getAddToCart();
+							if($addtocartval == 1){
+							if($_product->isSaleable()): ?>
+							<button class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php echo $this->__('Add to Cart') ?></span></button>
+							<?php else: ?>
+							<span class="out-of-stock"><?php echo $this->__('Out of stock') ?></span>
+							<?php endif; }?>
+				</div>
+				<div class="cl">
+					<?php $wishlists = $this->getActive();
+						if($wishlists == 1){
+						if ($this->helper('wishlist')->isAllow()) : ?>
+						<a href="<?php echo $this->getAddToWishlistUrl($_product) ?>" class="addWishlist"><?php echo $this->__('Add to Wishlist') ?></a>
+						<?php endif; }?>
+				</div>	
+				<div class="cl">
+					<?php $addtocompare = $this->getAddToCompare();
+					if($addtocompare==1){
+					if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+					&nbsp;<a href="<?php echo $_compareUrl; ?>" class="addCompare"><?php echo $this->__('Add to Compare') ?></a>
+					<?php endif; }?>
+				</div>
+			</td>
+		     <?php
+			    $i++;
+					if($i>($itemPerRow-1))
+					{
+						$i=0;
+						echo "</tr>";
+						echo '<tr><td colspan="3" class="hline"><img src="'. $this->getSkinUrl('images/spacer.gif') .'" alt="" /></td></tr>';
+					}
+						if($i==($itemPerRow))
+					{ 
+						echo '<td class="vline"><img src="'. $this->getSkinUrl('images/spacer.gif') .'" alt=""/></td>';
+					}
+				   }
+				 $x++;
+				 }
+		        }		
+            } 
+           ?>
+        </tr>
+        <?php
+        }
+        else
+        {
+        ?>
+		<tr>
+		  <?php
+			$i=0; $x = 1;
+			for($cnt = 0; $cnt<count($result); $cnt++)
+			{
+				$_product = $model->load($result[$cnt]);  //getting product object for particular product id
+				$status =  $_product->getData('status'); 
+				$visibility = $_product->getData('visibility');
+				if ($status == 1 && $visibility == 4)
+				{
+				 if($x <= $upperLimit)
+				 {
+				  if($i>($itemPerRow-1))
+				  echo '<tr valign="top">';
+	      ?>
+			<td class="product">
+				<div class="prodimage">
+					<a href="<?php echo $this->getBaseUrl().$_product['url_path']; ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
+					<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(($this->getImageHeight()) ? $this->getImageHeight() : 135,($this->getImageWidth()) ? $this->getImageWidth() : 135); ?>" alt="<?php echo $this->htmlEscape($_product['name']) ?>"/></a>
+				</div>
+				<div align="center">
+					<div class="prodDetails" align="center" style="width:150px;" >
+						<a href="<?php echo $this->getBaseUrl().$_product['url_path'] ?>" title="<?php echo $this->htmlEscape($_product['name']) ?>"><?php echo $this->htmlEscape($_product['name']) ?></a>
+			   		    <?php
+							if($review == 1) 
+							{
+								$_product = Mage::getModel('catalog/product')->load($_product->getId());
+								echo $this->getReviewsSummaryHtml($_product, 'short'); 
+							}
+							if($products_price == 1) 
+							{
+								$_product = Mage::getModel('catalog/product')->load($_product->getId());
+								echo $this->getPriceHtml($_product, true); 
+							}
+						?>                
+					</div>
+						<?php $addtocartval = $this->getAddToCart();
+							if($addtocartval == 1){
+							if($_product->isSaleable()): ?>
+							<button class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php echo $this->__('Add to Cart') ?></span></button>
+							<?php else: ?>
+							<span class="out-of-stock"><?php echo $this->__('Out of stock') ?></span>
+							<?php endif; }?>
+				</div>
+					<div class="cl">
+						<?php $wishlists = $this->getActive();
+							if($wishlists == 1){
+							if ($this->helper('wishlist')->isAllow()) : ?>
+							<a href="<?php echo $this->getAddToWishlistUrl($_product) ?>" class="addWishlist"><?php echo $this->__('Add to Wishlist') ?></a>
+						<?php endif; }?>
+					</div>	
+					<div class="cl">
+						<?php $addtocompare = $this->getAddToCompare();
+							if($addtocompare==1){
+							if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+							&nbsp;<a href="<?php echo $_compareUrl; ?>" class="addCompare"><?php echo $this->__('Add to Compare') ?></a>
+						<?php endif; }?>
+					</div>
+			</td>
+			 <?php
+				$i++;
+					if($i>($itemPerRow-1))
+					{ 	$i=0;
+						echo "</tr>";
+						echo '<tr><td colspan="3" class="hline"><img src="'. $this->getSkinUrl('images/spacer.gif') .'" alt="" /></td></tr>';
+					}
+					if($i==($itemPerRow))
+					{ 
+						echo '<td class="vline"><img src="'. $this->getSkinUrl('images/spacer.gif') .'" alt=""/></td>';
+					}
+				  }
+		         $x++;
+                }
+            } 
+             ?>
+        </tr>
+        <?php
+        }
+        ?>
+    </table>
+ <?php endif; ?>

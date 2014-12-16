@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+  <menu>
+    <cms module="cms">
+      <title>CMS</title>      
+      <children>
+        <bannerpopup module="bannerpopup">
+          <title>Banner Popup</title>      
+          <sort_order>5</sort_order>
+          <children>            
+            <items module="bannerpopup">
+              <title>Manage Banners</title>
+              <sort_order>0</sort_order>
+              <action>bannerpopup/adminhtml_bannerpopup</action>
+            </items>
+            <config translate="title">
+              <title>Setting</title>
+              <sort_order>2</sort_order>
+              <action>adminhtml/system_config/edit/section/bannerpopup</action>
+            </config>
+          </children>
+        </bannerpopup>
+      </children>
+    </cms>
+  </menu>	
+  <acl>
+    <resources>
+      <all>
+        <title>Allow Everything</title>
+      </all>
+      <admin>
+        <children>
+          <system>
+            <children>
+              <config>
+                <children>
+                  <bannerpopup translate="title">
+                    <title>Bannerpopup Permission Setting</title>
+                    <sort_order>50</sort_order>
+                  </bannerpopup>								
+                </children>
+              </config>
+            </children>
+          </system>
+        </children>
+      </admin>
+    </resources>
+  </acl>	
+</config>

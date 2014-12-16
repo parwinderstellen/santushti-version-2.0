@@ -1,0 +1,10 @@
+
+    <nav id="nav">
+        <ol class="nav-primary">
+            			<!---  static block Call for Main Menu ----------->
+			<ul>
+<li class="level0 nav-1 parent"><a class="level0" title="Home Page" href="http://localhost/magento/santushti_new/index.php/?___SID=U">Home</a></li>
+<li class="level0 nav-2"><a class="level0" title="About us" href="http://localhost/magento/santushti_new/index.php/about-us/?___SID=U">About us</a></li>
+<li class="level0 nav-5 last"><a class="level0" title="Contact Us" href="http://localhost/magento/santushti_new/index.php/contacts/?___SID=U">Contact Us</a></li>
+</ul>        </ol>
+    </nav>

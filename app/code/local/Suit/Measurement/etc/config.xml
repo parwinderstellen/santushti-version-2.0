@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Suit_Measurement>
+            <version>0.1.0</version>
+        </Suit_Measurement>
+    </modules>
+	<frontend>
+        <routers>
+            <measurement>
+                <use>standard</use>
+                <args>
+                    <module>Suit_Measurement</module>
+                    <frontName>measurement</frontName>
+                </args>
+            </measurement>
+        </routers>        
+    </frontend>
+</config>
